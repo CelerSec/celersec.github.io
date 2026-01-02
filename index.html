@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NimLogic Systems provides practical IT consulting, systems design, and full IT services for small and mid-sized businesses." />
+  <title>NimLogic Systems | IT Consulting & Systems Design for SMBs</title>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --surface: rgba(255,255,255,0.06);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --line: rgba(255,255,255,0.14);
+      --accent: #7dd3fc;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.35);
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: var(--font);
+      color: var(--text);
+      line-height: 1.55;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(125,211,252,0.14), transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(255,255,255,0.06), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 35%),
+        var(--bg);
+      background-attachment: scroll;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); }
+    .wrap{ width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,0.60);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 210px;
+    }
+    .mark{
+      width: 34px; height: 34px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(125,211,252,0.95), rgba(255,255,255,0.18));
+      box-shadow: 0 14px 34px rgba(125,211,252,0.10);
+    }
+    .brand .name{
+      display:flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .brand .name small{
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .brand .name strong{
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
+    nav ul{
+      list-style:none;
+      padding:0; margin:0;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a{
+      display:inline-flex;
+      padding: 8px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a:hover{
+      text-decoration:none;
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration:none;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{ background: rgba(255,255,255,0.10); text-decoration:none; }
+    .btn.primary{
+      border-color: rgba(125,211,252,0.40);
+      background: linear-gradient(135deg, rgba(125,211,252,0.18), rgba(255,255,255,0.06));
+    }
+
+    .hero{ padding: 54px 0 22px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{ padding: 24px; }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .dot{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(125,211,252,0.10);
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.2vw, 42px);
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+    .hero p{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 70ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .hero-side{ padding: 16px; display:flex; flex-direction: column; gap: 10px; }
+    .mini{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+    .mini strong{ display:block; font-size: 14px; }
+    .mini span{ display:block; margin-top: 6px; color: var(--muted); font-size: 13px; }
+
+    section{ padding: 22px 0; }
+    .section-head{
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 80ch;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .tile{
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .tile h3{ margin: 0 0 8px; font-size: 15px; }
+    .tile p{ margin: 0; color: var(--muted); font-size: 14px; }
+    .tag{
+      display:inline-flex;
+      margin-top: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .contact .card{ padding: 18px; }
+    form{ display:grid; gap: 10px; margin:0; }
+    label{ font-size: 13px; color: var(--muted); }
+    input, textarea{
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      color: var(--text);
+      outline: none;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus{
+      border-color: rgba(125,211,252,0.55);
+      box-shadow: 0 0 0 4px rgba(125,211,252,0.12);
+    }
+    .hint{ margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+
+    footer{
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+      padding: 18px 0 26px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .foot{
+      display:flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .brand{ min-width: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="NimLogic Systems">
+        <div class="mark" aria-hidden="true"></div>
+        <div class="name">
+          <small>NimLogic</small>
+          <strong>Systems</strong>
+        </div>
+      </a>
+
+      <nav aria-label="Site navigation">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn primary" href="#contact">Request a consult</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> SMB IT Consulting • Systems Design • Full IT Services</div>
+          <h1>Practical IT support for growing small businesses.</h1>
+          <p>
+            NimLogic Systems helps SMBs plan, build, and operate dependable technology—networks, identity, endpoints,
+            and cloud tooling—without unnecessary complexity.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn" href="#services">View services</a>
+            <a class="btn" href="mailto:nimlogicsystems@gmail.com">Email</a>
+          </div>
+          <p class="hint">Remote-first. On-site available by arrangement.</p>
+        </div>
+
+        <aside class="card hero-side" aria-label="Highlights">
+          <div class="mini">
+            <strong>Consulting & planning</strong>
+            <span>Assessments, roadmaps, and vendor selection aligned to budget and risk.</span>
+          </div>
+          <div class="mini">
+            <strong>Systems design</strong>
+            <span>Network, identity, endpoint, and cloud patterns that scale cleanly.</span>
+          </div>
+          <div class="mini">
+            <strong>Implementation & support</strong>
+            <span>Migrations, standardization, documentation, and ongoing service options.</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Services</h2>
+            <p>Discrete engagements or ongoing support. Clear deliverables and straightforward communication.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="tile">
+            <h3>IT Consulting</h3>
+            <p>Assessments, modernization planning, risk reduction, and operational improvement for SMB environments.</p>
+            <span class="tag">Assessment • Advisory</span>
+          </div>
+
+          <div class="tile">
+            <h3>Systems Design</h3>
+            <p>Network and identity architecture, endpoint baselines, backup strategy, and cloud service design.</p>
+            <span class="tag">Network • Identity • Cloud</span>
+          </div>
+
+          <div class="tile">
+            <h3>Full IT Services</h3>
+            <p>Implementation, migration, documentation, and support—remote-first with flexible service options.</p>
+            <span class="tag">Deploy • Migrate • Support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Approach</h2>
+            <p>Define scope, reduce surprises, and deliver systems you can operate with confidence.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="tile">
+            <h3>1) Discover</h3>
+            <p>Inventory, constraints, risk tolerance, and success criteria. Confirm what “done” means.</p>
+          </div>
+          <div class="tile">
+            <h3>2) Design</h3>
+            <p>Documented target state with prioritized actions, estimated effort, and implementation steps.</p>
+          </div>
+          <div class="tile">
+            <h3>3) Deliver</h3>
+            <p>Implement, validate, and hand off with documentation and an optional support model.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>Send a short note about what you need. Email is simplest for initial contact.</p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="card">
+            <form id="contactForm">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" autocomplete="name" required />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div>
+                <label for="message">What are you trying to accomplish?</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+
+              <button class="btn primary" type="submit">Send message</button>
+              <p class="hint" id="formHint">
+                This uses your email client (no backend yet). We can add a proper form endpoint later.
+              </p>
+            </form>
+          </div>
+
+          <div class="card" style="padding:18px;">
+            <h3 style="margin:0 0 10px; font-size:15px;">Direct email</h3>
+            <p style="margin:0; color:var(--muted); font-size:14px;">
+              Email:
+            </p>
+            <div style="margin-top:12px; display:grid; gap:10px;">
+              <a class="btn" href="mailto:nimlogicsystems@gmail.com">nimlogicsystems@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <strong style="color:var(--text);">NimLogic Systems</strong><br />
+          <span>IT Consulting • Systems Design • Full IT Services</span>
+        </div>
+        <div>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const hint = document.getElementById('formHint');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const to = 'nimlogicsystems@gmail.com';
+        const subject = `NimLogic inquiry from ${name || 'Website Visitor'}`;
+        const body =
+          `Name: ${name}\n` +
+          `Email: ${email}\n\n` +
+          `Message:\n${message}\n`;
+
+        window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        hint.textContent = 'Opening your email client with the message pre-filled.';
+      });
+    })();
+  </script>
+</body>
+</html>
