@@ -1,157 +1,686 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="NimLogic Systems delivers practical IT and cybersecurity improvements for small and mid-sized organizations—reliability, risk reduction, and clear outcomes." />
+
   <title>NimLogic Systems</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root {
-      --bg-color: #0f172a;        /* dark slate */
-      --text-color: #e5e7eb;      /* light gray */
-      --accent-color: #38bdf8;    /* soft blue */
-      --card-bg: #111827;         /* slightly lighter than background */
+    /* =========================
+       Design tokens
+       ========================= */
+    :root{
+      /* Typography */
+      --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+
+      /* Layout */
+      --max: 1100px;
+      --pad: clamp(16px, 3vw, 28px);
+      --section-pad-y: clamp(56px, 8vh, 92px);
+      --nav-h: 64px;
+
+      /* Colors (light-first, with dark support) */
+      --bg: #f7fafc;
+      --surface: rgba(255,255,255,0.76);
+      --surface-solid: #ffffff;
+      --text: #0b1220;
+      --muted: #42526e;
+      --border: rgba(15, 23, 42, 0.12);
+      --shadow: rgba(15, 23, 42, 0.10);
+      --accent: #2563eb; /* blue */
+      --accent-2: #06b6d4; /* cyan */
+      --good: #059669;
+
+      /* Stationary background gradients */
+      --bg-grad-1: radial-gradient(900px 600px at 12% 8%, rgba(37,99,235,0.14), transparent 60%);
+      --bg-grad-2: radial-gradient(800px 560px at 88% 18%, rgba(6,182,212,0.14), transparent 60%);
+      --bg-grad-3: radial-gradient(900px 700px at 45% 95%, rgba(16,185,129,0.10), transparent 62%);
+      --bg-grad-4: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(247,250,252,0.85));
+      --bg-composite: var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3), var(--bg-grad-4);
     }
 
-    * {
-      box-sizing: border-box;
+    @media (prefers-color-scheme: dark) {
+      :root{
+        --bg: #070a12;
+        --surface: rgba(17, 24, 39, 0.62);
+        --surface-solid: #0b1220;
+        --text: #eef2ff;
+        --muted: #b6c1d6;
+        --border: rgba(148, 163, 184, 0.18);
+        --shadow: rgba(0,0,0,0.45);
+        --accent: #60a5fa;
+        --accent-2: #22d3ee;
+        --good: #34d399;
+
+        --bg-grad-1: radial-gradient(900px 600px at 12% 8%, rgba(96,165,250,0.18), transparent 62%);
+        --bg-grad-2: radial-gradient(800px 560px at 88% 18%, rgba(34,211,238,0.16), transparent 62%);
+        --bg-grad-3: radial-gradient(900px 700px at 45% 95%, rgba(52,211,153,0.10), transparent 66%);
+        --bg-grad-4: linear-gradient(180deg, rgba(7,10,18,0.90), rgba(7,10,18,0.90));
+        --bg-composite: var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3), var(--bg-grad-4);
+      }
+    }
+
+    /* =========================
+       Base
+       ========================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
+
+    body{
       margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background-color: var(--bg);
+      background-image: var(--bg-composite); /* stationary, no attachment tricks */
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 100vh;
     }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid color-mix(in oklab, var(--accent), white 15%);
+      outline-offset: 3px;
+      border-radius: 10px;
     }
 
-    /* Top Navigation Bar */
-    header {
+    .container{
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+
+    /* =========================
+       Sticky header
+       ========================= */
+    header{
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: #020617;
-      border-bottom: 1px solid #1e293b;
-    }
-
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
+      height: var(--nav-h);
+      display: grid;
       align-items: center;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 30px var(--shadow);
     }
 
-    nav a {
-      color: var(--text-color);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
+    .nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    nav a:hover {
-      color: var(--accent-color);
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
+    .mark{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg,
+        color-mix(in oklab, var(--accent), white 20%),
+        color-mix(in oklab, var(--accent-2), white 20%));
+      box-shadow: 0 10px 30px var(--shadow);
     }
 
-    /* Sections */
-    section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
+    .brand strong{
+      font-size: 15px;
+      letter-spacing: 0.2px;
+      display: block;
+      line-height: 1.1;
+    }
+    .brand span{
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.1;
+      margin-top: 2px;
     }
 
-    h1, h2 {
-      margin-bottom: 1rem;
-      color: #f8fafc;
+    .nav-links{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    p {
-      margin-bottom: 1rem;
-      color: #cbd5f5;
+    .nav-links a{
+      font-size: 14px;
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
     }
 
-    .card {
-      background-color: var(--card-bg);
-      padding: 2rem;
-      border-radius: 0.5rem;
-      margin-top: 1.5rem;
+    .nav-links a:hover{
+      background: color-mix(in oklab, var(--surface-solid), transparent 15%);
+      border-color: var(--border);
+      color: var(--text);
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid #1e293b;
-      color: #94a3b8;
-      font-size: 0.9rem;
+    .nav-links a[aria-current="true"]{
+      background: color-mix(in oklab, var(--accent), transparent 90%);
+      border-color: color-mix(in oklab, var(--accent), transparent 70%);
+      color: var(--text);
     }
 
-    a.email-link {
-      color: var(--accent-color);
-      text-decoration: none;
+    .cta{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg,
+        color-mix(in oklab, var(--accent), white 10%),
+        color-mix(in oklab, var(--accent-2), white 8%));
+      color: #ffffff;
+      border: 1px solid color-mix(in oklab, var(--accent), black 12%);
+      box-shadow: 0 16px 40px var(--shadow);
       font-weight: 600;
+      font-size: 14px;
+      transition: transform 160ms ease, filter 160ms ease;
+    }
+    .cta:hover { transform: translateY(-1px); filter: brightness(1.03); }
+
+    /* =========================
+       Sections: fill the viewport
+       ========================= */
+    main { display: block; }
+    section{
+      min-height: calc(100vh - var(--nav-h));
+      display: grid;
+      align-items: center;
+      padding-top: var(--section-pad-y);
+      padding-bottom: var(--section-pad-y);
     }
 
-    a.email-link:hover {
-      text-decoration: underline;
+    .grid-2{
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: clamp(18px, 3vw, 30px);
+      align-items: start;
     }
+    @media (max-width: 880px){
+      .grid-2{ grid-template-columns: 1fr; }
+      .brand{ min-width: 0; }
+    }
+
+    .card{
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(18px, 2.6vw, 26px);
+      box-shadow: 0 20px 60px var(--shadow);
+    }
+
+    .kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.2px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--surface-solid), transparent 10%);
+      width: fit-content;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--good);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--good), transparent 80%);
+    }
+
+    h1{
+      font-size: clamp(32px, 4.4vw, 54px);
+      line-height: 1.05;
+      margin: 14px 0 10px;
+      letter-spacing: -0.8px;
+    }
+    h2{
+      font-size: clamp(26px, 3.2vw, 38px);
+      margin: 0 0 12px;
+      letter-spacing: -0.6px;
+    }
+    p{
+      font-size: 16px;
+      line-height: 1.7;
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
+      margin: 0 0 14px;
+    }
+
+    .lead{
+      font-size: 17px;
+      color: color-mix(in oklab, var(--text), var(--muted) 25%);
+      max-width: 65ch;
+    }
+
+    .bullets{
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .bullets li{
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: color-mix(in oklab, var(--text), var(--muted) 30%);
+    }
+    .check{
+      width: 18px; height: 18px; border-radius: 6px;
+      background: color-mix(in oklab, var(--good), transparent 82%);
+      border: 1px solid color-mix(in oklab, var(--good), transparent 55%);
+      position: relative;
+      margin-top: 2px;
+    }
+    .check::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 8px; height: 4px;
+      border-left: 2px solid var(--good);
+      border-bottom: 2px solid var(--good);
+      transform: rotate(-45deg);
+      top: 5px; left: 4px;
+    }
+
+    .metrics{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .metric{
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background: color-mix(in oklab, var(--surface-solid), transparent 12%);
+    }
+    .metric strong{
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .metric span{
+      font-size: 13px;
+      color: color-mix(in oklab, var(--text), var(--muted) 40%);
+    }
+
+    .service-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 980px){ .service-grid{ grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px){ .service-grid{ grid-template-columns: 1fr; } }
+
+    .service{
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      background: color-mix(in oklab, var(--surface-solid), transparent 12%);
+      min-height: 128px;
+    }
+    .service h3{
+      margin: 0 0 8px;
+      font-size: 15px;
+      letter-spacing: -0.2px;
+    }
+    .service p{
+      margin: 0;
+      font-size: 14px;
+      color: color-mix(in oklab, var(--text), var(--muted) 40%);
+    }
+
+    .contact-row{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 720px){
+      .contact-row{ grid-template-columns: 1fr; }
+    }
+
+    .email{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--surface-solid), transparent 12%);
+      font-weight: 650;
+      color: var(--text);
+    }
+    .email small{
+      display: block;
+      font-weight: 500;
+      color: color-mix(in oklab, var(--text), var(--muted) 45%);
+      margin-top: 2px;
+      font-size: 12px;
+    }
+
+    footer{
+      border-top: 1px solid var(--border);
+      padding: 20px var(--pad);
+      text-align: center;
+      color: color-mix(in oklab, var(--text), var(--muted) 50%);
+      font-size: 13px;
+      background: color-mix(in oklab, var(--surface-solid), transparent 25%);
+    }
+
+    /* Small utility */
+    .muted{ color: var(--muted); }
+    .stack{ display: grid; gap: 12px; }
+    .row{ display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   </style>
 </head>
 
 <body>
-
   <header>
-    <nav>
-      <div class="logo">NimLogic Systems</div>
-      <div>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="NimLogic Systems Home">
+        <span class="mark" aria-hidden="true"></span>
+        <span>
+          <strong>NimLogic Systems</strong>
+          <span>IT & security made practical</span>
+        </span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-nav="about">About</a>
+        <a href="#services" data-nav="services">Services</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+        <a class="cta" href="#contact" data-nav="cta">Email us</a>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <section id="about">
-    <h1>Practical IT & Cybersecurity for Small Businesses</h1>
-    <p>
-      NimLogic Systems provides consulting, system design, and IT services with a focus on security, reliability, and operational simplicity for small and mid-sized organizations.
-    </p>
-  </section>
+  <main id="home">
+    <!-- ABOUT / HERO -->
+    <section id="about" aria-labelledby="aboutTitle">
+      <div class="container grid-2">
+        <div class="stack">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span><span>For leaders who want fewer surprises, not more tooling.</span></div>
 
-  <section id="services">
-    <h2>Services</h2>
-    <div class="card">
-      <ul>
-        <li>IT Consulting & System Architecture</li>
-        <li>Cybersecurity Risk & Hardening</li>
-        <li>Network & Infrastructure Design</li>
-        <li>Cloud and Hybrid Environment Support</li>
-        <li>Incident Response & Advisory</li>
-      </ul>
-    </div>
-  </section>
+          <h1 id="aboutTitle">Secure, reliable IT that your team doesn’t have to think about.</h1>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>
-        For inquiries or consultations, please contact:
-      </p>
-      <p>
-        <a class="email-link" href="mailto:contact@nimlogic.com">contact@nimlogic.com</a>
-      </p>
-    </div>
-  </section>
+          <p class="lead">
+            We help small and mid-sized organizations reduce operational risk, improve uptime, and simplify day-to-day IT decisions.
+            The approach is disciplined and measurable, but the experience stays straightforward.
+          </p>
+
+          <ul class="bullets" aria-label="Key outcomes">
+            <li><span class="check" aria-hidden="true"></span><span><strong>Clarity:</strong> practical recommendations tied to business impact, not jargon.</span></li>
+            <li><span class="check" aria-hidden="true"></span><span><strong>Control:</strong> consistent configuration and predictable changes.</span></li>
+            <li><span class="check" aria-hidden="true"></span><span><strong>Confidence:</strong> improved security posture without slowing the business.</span></li>
+          </ul>
+
+          <div class="row" style="margin-top: 10px;">
+            <a class="cta" href="#services">See how we help</a>
+            <a class="email" href="#contact">
+              <span>
+                Contact by email
+                <small>No forms. Direct communication.</small>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="card" aria-label="What you can expect">
+          <h2 style="margin-top:0;">What to expect</h2>
+          <p>
+            A structured engagement that respects your constraints (time, budget, staff bandwidth) and produces
+            usable outputs: prioritized actions, implementation plan, and clear ownership.
+          </p>
+
+          <div class="metrics" aria-label="Engagement focus">
+            <div class="metric">
+              <strong>Risk reduction</strong>
+              <span>Close common gaps; raise baseline security</span>
+            </div>
+            <div class="metric">
+              <strong>Reliability</strong>
+              <span>Reduce outages and recurring “mystery” issues</span>
+            </div>
+            <div class="metric">
+              <strong>Visibility</strong>
+              <span>Know what’s happening before it becomes urgent</span>
+            </div>
+            <div class="metric">
+              <strong>Documentation</strong>
+              <span>Decisions and configs that survive turnover</span>
+            </div>
+          </div>
+
+          <p style="margin-top:14px;">
+            The goal is simple: IT that supports the mission quietly, consistently, and securely.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="servicesTitle">
+      <div class="container">
+        <div class="card">
+          <h2 id="servicesTitle">Services</h2>
+          <p class="lead">
+            Designed for managers: each service is focused on outcomes, timelines, and sustainable operations—not vendor buzzwords.
+          </p>
+
+          <div class="service-grid" role="list">
+            <div class="service" role="listitem">
+              <h3>IT Assessment & Roadmap</h3>
+              <p>Prioritized findings, risk-based recommendations, and a 30/60/90-day plan your team can execute.</p>
+            </div>
+            <div class="service" role="listitem">
+              <h3>Security Baseline & Hardening</h3>
+              <p>Account controls, patch discipline, endpoint posture, and secure configuration—without overcomplicating operations.</p>
+            </div>
+            <div class="service" role="listitem">
+              <h3>Network & Identity Cleanup</h3>
+              <p>Reduce drift, standardize access, and eliminate “tribal knowledge” dependencies across systems.</p>
+            </div>
+            <div class="service" role="listitem">
+              <h3>Monitoring & Early Warning</h3>
+              <p>Actionable visibility into availability, anomalies, and security signals—aligned to what leadership cares about.</p>
+            </div>
+            <div class="service" role="listitem">
+              <h3>Incident Support & Advisory</h3>
+              <p>When something goes wrong, you get calm triage, clear decisions, and documentation for follow-up improvements.</p>
+            </div>
+            <div class="service" role="listitem">
+              <h3>Documentation & Continuity</h3>
+              <p>Standard operating notes and diagrams that keep systems maintainable through staff turnover and growth.</p>
+            </div>
+          </div>
+
+          <div class="contact-row" style="margin-top:16px;">
+            <div>
+              <p style="margin:0;">
+                If you’re not sure where to start, begin with an assessment. You’ll get a practical roadmap and a clear definition of “done.”
+              </p>
+              <p style="margin:8px 0 0;" class="muted">
+                Typical first step: short discovery call → scoped assessment → prioritized plan.
+              </p>
+            </div>
+            <a class="cta" href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contactTitle">
+      <div class="container grid-2">
+        <div class="stack">
+          <h2 id="contactTitle">Contact</h2>
+          <p class="lead">
+            Send a brief note with your goals and constraints (timeline, environment size, current pain points). You’ll receive a clear next step and a practical scope—no pressure.
+          </p>
+
+          <div class="card">
+            <div class="row" style="justify-content:space-between;">
+              <div>
+                <div style="font-weight:750; font-size:16px; letter-spacing:-0.2px;">Email</div>
+                <div class="muted" style="margin-top:6px;">Preferred channel. No forms, no ticket portals.</div>
+              </div>
+              <a class="email" href="mailto:contact@nimlogic.com">
+                <span>
+                  contact@nimlogic.com
+                  <small>Click to open your email app</small>
+                </span>
+              </a>
+            </div>
+
+            <div style="margin-top:16px; border-top:1px solid var(--border); padding-top:14px;">
+              <p style="margin:0;"><strong>Helpful details to include:</strong></p>
+              <ul class="bullets" style="margin-top:10px;">
+                <li><span class="check" aria-hidden="true"></span><span>Number of users/devices (approximate)</span></li>
+                <li><span class="check" aria-hidden="true"></span><span>Primary concern (reliability, security, compliance, cost)</span></li>
+                <li><span class="check" aria-hidden="true"></span><span>Any recent incidents or recurring pain points</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card" aria-label="Engagement principles">
+          <h2 style="margin-top:0;">How we work</h2>
+          <p>
+            You should always know what is being changed, why it matters, and how it reduces risk or improves operations.
+            The work is technical, but the communication stays clear.
+          </p>
+
+          <ul class="bullets" aria-label="Principles">
+            <li><span class="check" aria-hidden="true"></span><span><strong>Minimal disruption:</strong> changes planned around business hours and impact.</span></li>
+            <li><span class="check" aria-hidden="true"></span><span><strong>Measurable outcomes:</strong> improvements you can see and validate.</span></li>
+            <li><span class="check" aria-hidden="true"></span><span><strong>Maintainable by your team:</strong> no dependency traps.</span></li>
+          </ul>
+
+          <div class="metrics" style="margin-top:16px;">
+            <div class="metric">
+              <strong>Scope</strong>
+              <span>Defined deliverables and “done” criteria</span>
+            </div>
+            <div class="metric">
+              <strong>Transparency</strong>
+              <span>Clear status, notes, and decisions</span>
+            </div>
+          </div>
+
+          <p style="margin-top:16px;" class="muted">
+            If you prefer a single sentence: we make IT safer and more predictable, without making it heavier.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © 2026 NimLogic Systems. All rights reserved.
+    © <span id="year"></span> NimLogic Systems. All rights reserved.
   </footer>
 
+  <script>
+    /**
+     * Technical details (kept unobtrusive):
+     * - Scroll-spy using IntersectionObserver (progressive enhancement)
+     * - Reduced motion honored via CSS; no animations required
+     * - Minimal DOM writes; requestAnimationFrame scheduling
+     */
+    (() => {
+      const yearEl = document.getElementById('year');
+      yearEl.textContent = String(new Date().getFullYear());
+
+      const links = Array.from(document.querySelectorAll('.nav-links a[data-nav]'))
+        .filter(a => a.getAttribute('href')?.startsWith('#'));
+
+      const sections = links
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+      // Guard for older browsers / edge environments
+      if (!('IntersectionObserver' in window) || sections.length === 0) return;
+
+      const linkById = new Map(
+        links.map(a => [a.getAttribute('href').slice(1), a])
+      );
+
+      let pending = false;
+      let activeId = null;
+
+      const setActive = (id) => {
+        if (activeId === id) return;
+        activeId = id;
+
+        // Batch DOM writes
+        links.forEach(a => a.setAttribute('aria-current', 'false'));
+        const activeLink = linkById.get(id);
+        if (activeLink) activeLink.setAttribute('aria-current', 'true');
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        // Choose the most visible intersecting section
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b) => (b.intersectionRatio - a.intersectionRatio));
+
+        if (visible.length === 0) return;
+
+        const id = visible[0].target.id;
+        if (pending) return;
+        pending = true;
+
+        requestAnimationFrame(() => {
+          setActive(id);
+          pending = false;
+        });
+      }, {
+        root: null,
+        threshold: [0.35, 0.55, 0.75],
+        rootMargin: `-${Math.floor(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')))}px 0px -40% 0px`
+      });
+
+      sections.forEach(sec => observer.observe(sec));
+
+      // Default state on load
+      setActive('about');
+    })();
+  </script>
 </body>
 </html>
