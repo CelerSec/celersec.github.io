@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NimLogic Systems</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg-color: #0f172a;        /* dark slate */
+      --text-color: #e5e7eb;      /* light gray */
+      --accent-color: #38bdf8;    /* soft blue */
+      --card-bg: #111827;         /* slightly lighter than background */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #020617;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    h1, h2 {
+      margin-bottom: 1rem;
+      color: #f8fafc;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #cbd5f5;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid #1e293b;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    a.email-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a.email-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">NimLogic Systems</div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h1>Practical IT & Cybersecurity for Small Businesses</h1>
+    <p>
+      NimLogic Systems provides consulting, system design, and IT services with a focus on security, reliability, and operational simplicity for small and mid-sized organizations.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <div class="card">
+      <ul>
+        <li>IT Consulting & System Architecture</li>
+        <li>Cybersecurity Risk & Hardening</li>
+        <li>Network & Infrastructure Design</li>
+        <li>Cloud and Hybrid Environment Support</li>
+        <li>Incident Response & Advisory</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>
+        For inquiries or consultations, please contact:
+      </p>
+      <p>
+        <a class="email-link" href="mailto:contact@nimlogic.com">contact@nimlogic.com</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 NimLogic Systems. All rights reserved.
+  </footer>
+
+</body>
+</html>
