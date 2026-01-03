@@ -1,144 +1,131 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="description" content="NimLogic Systems provides website design, hosting, cloud storage solutions, and practical IT consulting for small and mid-sized organizations." />
-  <title>NimLogic Systems</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NimLogic Systems provides website design, hosting, cloud storage solutions, and practical IT consulting for small and mid-sized organizations.">
+<title>NimLogic Systems</title>
 
-  <style>
-    :root{
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      --max: 1100px;
-      --pad: clamp(16px, 3vw, 28px);
-      --nav-h: 96px;
-      --nav-py: 14px;
-      --radius: 22px;
-      --bg: #f7fafc;
-      --surface: rgba(255,255,255,0.78);
-      --surface-solid: #ffffff;
-      --text: #0b1220;
-      --muted: #4b5a74;
-      --border: rgba(15, 23, 42, 0.12);
-      --shadow: rgba(15, 23, 42, 0.10);
-      --accent: #2563eb;
-      --bg1: radial-gradient(900px 600px at 12% 8%, rgba(37,99,235,0.13), transparent 60%);
-      --bg2: radial-gradient(900px 650px at 88% 20%, rgba(37,99,235,0.08), transparent 62%);
-      --bg3: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(247,250,252,0.88));
-      --bgimg: var(--bg1), var(--bg2), var(--bg3);
-    }
+<style>
+:root{
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  --max: 1100px;
+  --pad: clamp(16px, 3vw, 28px);
+  --nav-h: 96px;
+  --radius: 22px;
+  --bg:#f7fafc;
+  --surface:rgba(255,255,255,.78);
+  --surface-solid:#fff;
+  --text:#0b1220;
+  --muted:#4b5a74;
+  --border:rgba(15,23,42,.12);
+  --shadow:rgba(15,23,42,.1);
+  --accent:#2563eb;
+}
 
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#070a12;
-        --surface:rgba(17,24,39,.64);
-        --surface-solid:#0b1220;
-        --text:#eef2ff;
-        --muted:#b6c1d6;
-        --border:rgba(148,163,184,.18);
-        --shadow:rgba(0,0,0,.45);
-        --accent:#60a5fa;
-        --bg1:radial-gradient(900px 600px at 12% 8%, rgba(96,165,250,.18), transparent 62%);
-        --bg2:radial-gradient(900px 650px at 88% 20%, rgba(96,165,250,.12), transparent 66%);
-        --bg3:linear-gradient(180deg, rgba(7,10,18,.92), rgba(7,10,18,.92));
-        --bgimg:var(--bg1),var(--bg2),var(--bg3);
-      }
-    }
+body{
+  margin:0;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 12px)}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 
-    body{
-      margin:0;
-      font-family:var(--font);
-      color:var(--text);
-      background:var(--bg);
-      background-image:var(--bgimg);
-      background-size:cover;
-      min-height:100vh;
-    }
+header{
+  position:sticky;top:0;z-index:1000;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 8px 28px var(--shadow);
+}
 
-    .container{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
 
-    header{
-      position:sticky;top:0;z-index:1000;
-      min-height:var(--nav-h);
-      padding:var(--nav-py) 0;
-      background:var(--surface);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border);
-      box-shadow:0 8px 28px var(--shadow);
-    }
+.brand{display:flex;align-items:center;gap:12px}
+.logo{height:56px}
 
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.nav-links{display:flex;gap:10px}
+.pill{padding:10px 14px;border-radius:999px;font-size:14px}
+.pill.primary{background:var(--accent);color:#fff;font-weight:600}
 
-    .brand{display:flex;align-items:center;gap:12px}
+section{padding:clamp(64px,9vh,96px) 0}
 
-    .logo-wrap{
-      padding:6px;border-radius:14px;
-      background:color-mix(in oklab,var(--surface-solid),transparent 8%);
-      border:1px solid var(--border);
-      box-shadow:0 10px 26px var(--shadow);
-    }
+.panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:clamp(22px,3vw,36px);
+  box-shadow:0 20px 60px var(--shadow);
+}
 
-    .logo{height:54px;width:auto;display:block}
+.kicker{
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:16px;
+}
 
-    .nav-links{display:flex;gap:10px;flex-wrap:wrap}
+.dot{
+  width:8px;height:8px;border-radius:999px;background:var(--accent);
+}
 
-    .pill{padding:10px 12px;border-radius:999px;font-size:14px}
+h1{font-size:clamp(32px,4vw,52px);margin:0 0 16px}
+h2{font-size:clamp(24px,3vw,36px);margin:0 0 12px}
+p{line-height:1.7;color:color-mix(in oklab,var(--text),var(--muted) 35%)}
 
-    .pill.primary{background:var(--accent);color:#fff;font-weight:650}
+.services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:24px;
+}
 
-    section{
-      min-height:auto;
-      padding:clamp(48px,6vh,72px) 0;
-      display:flex;
-      align-items:center;
-    }
+@media(max-width:820px){
+  .services{grid-template-columns:1fr}
+}
 
-    @media (max-width: 900px){
-      section{
-        padding:clamp(56px,8vh,92px) 0;
-      }
-    }
+.svc{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  background:color-mix(in oklab,var(--surface-solid),transparent 10%);
+}
 
-    .panel{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:clamp(18px,2.6vw,26px);
-      box-shadow:0 20px 60px var(--shadow);
-      width:100%;
-    }
+.svc strong{
+  font-size:15px;
+  display:block;
+  margin-bottom:8px;
+}
 
-    h1{font-size:clamp(30px,3.6vw,46px);margin:0 0 12px}
-    h2{font-size:clamp(22px,2.8vw,34px);margin:0 0 10px}
-    p{font-size:16px;line-height:1.7;color:color-mix(in oklab,var(--text),var(--muted) 35%)}
+.svc p{
+  margin:0;
+  font-size:14px;
+}
 
-    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
-    @media(max-width:820px){.services{grid-template-columns:1fr}}
-
-    .svc{border:1px solid var(--border);border-radius:16px;padding:14px;background:color-mix(in oklab,var(--surface-solid),transparent 12%)}
-
-    footer{
-      border-top:1px solid var(--border);
-      padding:20px var(--pad);
-      text-align:center;
-      font-size:13px;
-      color:color-mix(in oklab,var(--text),var(--muted) 55%);
-    }
-  </style>
+footer{
+  border-top:1px solid var(--border);
+  padding:20px;
+  text-align:center;
+  font-size:13px;
+  color:color-mix(in oklab,var(--text),var(--muted) 55%);
+}
+</style>
 </head>
 
 <body>
+
 <header>
   <div class="container nav">
     <div class="brand">
-      <div class="logo-wrap"><img src="Logo0.png" class="logo" alt="NimLogic Systems logo"></div>
+      <img src="Logo0.png" class="logo" alt="NimLogic Systems logo">
       <div>
-        <strong>NimLogic Systems</strong>
-        <div style="font-size:12px;color:var(--muted)">Web, cloud, and practical IT</div>
+        <strong>NimLogic Systems</strong><br>
+        <span style="font-size:12px;color:var(--muted)">Web, cloud, and practical IT</span>
       </div>
     </div>
     <nav class="nav-links">
@@ -150,11 +137,19 @@
 </header>
 
 <main>
+
 <section id="about">
   <div class="container">
     <div class="panel">
-      <h1>Modern web and IT services that stay reliable and easy to manage.</h1>
-      <p>NimLogic Systems helps small and mid-sized organizations launch and operate websites, hosting, cloud storage, and IT systems without unnecessary complexity.</p>
+      <div class="kicker"><span class="dot"></span> Simple for leaders. Disciplined under the hood.</div>
+      <h1>Modern web and IT services designed to stay reliable.</h1>
+      <p>
+        NimLogic Systems helps organizations establish a professional web presence, host it securely,
+        manage their data responsibly, and keep IT systems predictable and well-documented.
+      </p>
+      <p>
+        The goal is not complexity — it is clarity, reliability, and systems that your team can actually operate.
+      </p>
     </div>
   </div>
 </section>
@@ -163,11 +158,27 @@
   <div class="container">
     <div class="panel">
       <h2>Services</h2>
+
       <div class="services">
-        <div class="svc"><strong>Website Design</strong><span>Clean, fast, professional websites.</span></div>
-        <div class="svc"><strong>Web Hosting</strong><span>Secure, monitored, backed-up hosting.</span></div>
-        <div class="svc"><strong>Cloud Storage</strong><span>Right-sized, secure file storage.</span></div>
-        <div class="svc"><strong>IT Consulting</strong><span>Practical guidance for systems and operations.</span></div>
+        <div class="svc">
+          <strong>Website Design</strong>
+          <p>Professional, fast-loading websites designed for clarity, credibility, and usability. Built mobile-first, accessible, and structured so future updates are easy.</p>
+        </div>
+
+        <div class="svc">
+          <strong>Web Hosting</strong>
+          <p>Secure hosting with SSL, backups, monitoring, and sensible defaults. Designed to be reliable without requiring constant attention.</p>
+        </div>
+
+        <div class="svc">
+          <strong>Cloud Storage Solutions</strong>
+          <p>Centralized file storage with access controls, sharing practices, retention policies, and recovery planning so your data stays usable and protected.</p>
+        </div>
+
+        <div class="svc">
+          <strong>IT Consulting</strong>
+          <p>Practical guidance on systems, identity, endpoints, and operations — focused on reducing recurring issues and operational risk.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -177,14 +188,21 @@
   <div class="container">
     <div class="panel">
       <h2>Contact</h2>
-      <p>Email is the simplest way to start:</p>
+      <p>If you include what you're trying to build or fix and your timeline, you'll get a clear next step.</p>
       <a href="mailto:nimlogicsystems@gmail.com">nimlogicsystems@gmail.com</a>
     </div>
   </div>
 </section>
+
 </main>
 
-<footer>© <span id="y"></span> NimLogic Systems. All rights reserved.</footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<footer>
+  © <span id="y"></span> NimLogic Systems. All rights reserved.
+</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
