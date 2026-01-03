@@ -8,16 +8,13 @@
   <title>NimLogic Systems</title>
 
   <style>
-    /* =========================
-       Tokens
-       ========================= */
     :root{
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 
       --max: 1100px;
       --pad: clamp(16px, 3vw, 28px);
 
-      /* Header sizing: increased and made flexible */
+      /* Header sizing: tall enough even when links wrap */
       --nav-h: 96px;
       --nav-py: 14px;
 
@@ -59,9 +56,7 @@
       }
     }
 
-    /* =========================
-       Base
-       ========================= */
+    /* Base */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
     @media (prefers-reduced-motion: reduce){
@@ -94,15 +89,12 @@
       padding: 0 var(--pad);
     }
 
-    /* =========================
-       Header (taller + wraps cleanly)
-       ========================= */
+    /* Header */
     header{
       position: sticky;
       top: 0;
       z-index: 1000;
 
-      /* Make it actually tall enough even when links wrap */
       min-height: var(--nav-h);
       padding: var(--nav-py) 0;
 
@@ -118,7 +110,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      flex-wrap: wrap; /* allows clean wrap on small screens */
+      flex-wrap: wrap;
     }
 
     .brand{
@@ -158,8 +150,6 @@
       gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
-
-      /* When wrapping, this ensures the row has room */
       padding-left: 8px;
     }
 
@@ -192,9 +182,7 @@
       box-shadow: 0 16px 38px var(--shadow);
     }
 
-    /* =========================
-       Sections (simple, fewer boxes)
-       ========================= */
+    /* Sections */
     section{
       min-height: calc(100vh - var(--nav-h) - (var(--nav-py) * 2));
       display: grid;
@@ -212,14 +200,6 @@
       padding: clamp(18px, 2.6vw, 26px);
     }
 
-    .grid{
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: clamp(16px, 3vw, 28px);
-      align-items: start;
-    }
-    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
-
     h1{
       margin: 0 0 12px;
       font-size: clamp(32px, 4.2vw, 52px);
@@ -236,7 +216,7 @@
       font-size: 16px;
       line-height: 1.7;
       color: color-mix(in oklab, var(--text), var(--muted) 35%);
-      max-width: 70ch;
+      max-width: 78ch;
     }
 
     .kicker{
@@ -257,6 +237,15 @@
       background: var(--accent);
       box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent), transparent 82%);
     }
+
+    .split{
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(14px, 2.6vw, 22px);
+      align-items: start;
+      margin-top: 12px;
+    }
+    @media (max-width: 900px){ .split{ grid-template-columns: 1fr; } }
 
     .list{
       margin: 12px 0 0;
@@ -290,6 +279,13 @@
       border-bottom: 2px solid var(--accent);
       transform: rotate(-45deg);
       top: 5px; left: 4px;
+    }
+
+    .subpanel{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      background: color-mix(in oklab, var(--surface-solid), transparent 12%);
     }
 
     .services{
@@ -367,35 +363,40 @@
   </header>
 
   <main>
-    <!-- ABOUT -->
+    <!-- ABOUT (now boxed like Services/Contact) -->
     <section id="about" aria-labelledby="aboutTitle">
-      <div class="container grid">
-        <div>
+      <div class="container">
+        <div class="panel">
           <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Simple for leaders. Disciplined under the hood.</span></div>
           <h1 id="aboutTitle">Reliable IT that reduces risk without adding complexity.</h1>
+
           <p>
             NimLogic Systems helps small and mid-sized organizations improve stability and security with clear priorities and minimal disruption.
             You get a plan your team can follow, and improvements you can verify.
           </p>
 
-          <ul class="list" aria-label="Outcomes">
-            <li><span class="check" aria-hidden="true"></span><span><strong>Clear priorities</strong> tied to business impact.</span></li>
-            <li><span class="check" aria-hidden="true"></span><span><strong>Fewer surprises</strong> from outages and security gaps.</span></li>
-            <li><span class="check" aria-hidden="true"></span><span><strong>Maintainable results</strong> with documentation and ownership.</span></li>
-          </ul>
-        </div>
+          <div class="split" aria-label="About and deliverables">
+            <div>
+              <h2 style="margin-top:0;">Outcomes</h2>
+              <ul class="list" aria-label="Outcomes list">
+                <li><span class="check" aria-hidden="true"></span><span><strong>Clear priorities</strong> tied to business impact.</span></li>
+                <li><span class="check" aria-hidden="true"></span><span><strong>Fewer surprises</strong> from outages and security gaps.</span></li>
+                <li><span class="check" aria-hidden="true"></span><span><strong>Maintainable results</strong> with documentation and ownership.</span></li>
+              </ul>
+            </div>
 
-        <aside class="panel" aria-label="What you receive">
-          <h2>What you receive</h2>
-          <p>
-            A straightforward engagement: understand what matters, identify the highest-value fixes, and deliver improvements in a controlled way.
-          </p>
-          <ul class="list" aria-label="Deliverables">
-            <li><span class="check" aria-hidden="true"></span><span>Findings summary and prioritized roadmap</span></li>
-            <li><span class="check" aria-hidden="true"></span><span>Implementation plan with scope and timelines</span></li>
-            <li><span class="check" aria-hidden="true"></span><span>Documentation that supports continuity</span></li>
-          </ul>
-        </aside>
+            <!-- “What you receive” is now part of the About box, not a separate big box -->
+            <div class="subpanel" aria-label="What you receive">
+              <h2 style="margin-top:0;">What you receive</h2>
+              <ul class="list" aria-label="Deliverables">
+                <li><span class="check" aria-hidden="true"></span><span>Prioritized roadmap</span></li>
+                <li><span class="check" aria-hidden="true"></span><span>Scoped plan with timelines</span></li>
+                <li><span class="check" aria-hidden="true"></span><span>Documentation for continuity</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -445,7 +446,7 @@
   </footer>
 
   <script>
-    // Minimal enhancement: active nav state + year. No extra UI, no repetition.
+    // Minimal enhancement: active nav state + year.
     (() => {
       document.getElementById('year').textContent = String(new Date().getFullYear());
 
