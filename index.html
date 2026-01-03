@@ -10,11 +10,9 @@
   <style>
     :root{
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-
       --max: 1100px;
       --pad: clamp(16px, 3vw, 28px);
 
-      /* Header sizing: tall enough even when links wrap */
       --nav-h: 96px;
       --nav-py: 14px;
 
@@ -28,14 +26,12 @@
       --border: rgba(15, 23, 42, 0.12);
       --shadow: rgba(15, 23, 42, 0.10);
 
-      /* Unified accent for all “bubbles” */
       --accent: #2563eb;
 
-      /* Stationary background gradients (subtle) */
-      --bg-grad-1: radial-gradient(900px 600px at 12% 8%, rgba(37,99,235,0.13), transparent 60%);
-      --bg-grad-2: radial-gradient(900px 650px at 88% 20%, rgba(37,99,235,0.08), transparent 62%);
-      --bg-grad-3: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(247,250,252,0.88));
-      --bg-composite: var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3);
+      --bg1: radial-gradient(900px 600px at 12% 8%, rgba(37,99,235,0.13), transparent 60%);
+      --bg2: radial-gradient(900px 650px at 88% 20%, rgba(37,99,235,0.08), transparent 62%);
+      --bg3: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(247,250,252,0.88));
+      --bgimg: var(--bg1), var(--bg2), var(--bg3);
     }
 
     @media (prefers-color-scheme: dark){
@@ -49,27 +45,23 @@
         --shadow: rgba(0,0,0,0.45);
         --accent: #60a5fa;
 
-        --bg-grad-1: radial-gradient(900px 600px at 12% 8%, rgba(96,165,250,0.18), transparent 62%);
-        --bg-grad-2: radial-gradient(900px 650px at 88% 20%, rgba(96,165,250,0.12), transparent 66%);
-        --bg-grad-3: linear-gradient(180deg, rgba(7,10,18,0.92), rgba(7,10,18,0.92));
-        --bg-composite: var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3);
+        --bg1: radial-gradient(900px 600px at 12% 8%, rgba(96,165,250,0.18), transparent 62%);
+        --bg2: radial-gradient(900px 650px at 88% 20%, rgba(96,165,250,0.12), transparent 66%);
+        --bg3: linear-gradient(180deg, rgba(7,10,18,0.92), rgba(7,10,18,0.92));
+        --bgimg: var(--bg1), var(--bg2), var(--bg3);
       }
     }
 
-    /* Base */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
-    @media (prefers-reduced-motion: reduce){
-      html { scroll-behavior: auto; }
-      * { transition: none !important; animation: none !important; }
-    }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+    @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ transition:none !important; animation:none !important; } }
 
     body{
       margin: 0;
       font-family: var(--font);
       color: var(--text);
-      background-color: var(--bg);
-      background-image: var(--bg-composite);
+      background: var(--bg);
+      background-image: var(--bgimg);
       background-repeat: no-repeat;
       background-size: cover;
       min-height: 100vh;
@@ -83,21 +75,17 @@
     }
 
     .container{
-      width: 100%;
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 var(--pad);
     }
 
-    /* Header */
     header{
       position: sticky;
       top: 0;
       z-index: 1000;
-
       min-height: var(--nav-h);
       padding: var(--nav-py) 0;
-
       background: var(--surface);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -136,7 +124,7 @@
       line-height: 1.1;
     }
 
-    .brand span{
+    .brand .tag{
       display: block;
       font-size: 12px;
       color: var(--muted);
@@ -182,7 +170,6 @@
       box-shadow: 0 16px 38px var(--shadow);
     }
 
-    /* Sections */
     section{
       min-height: calc(100vh - var(--nav-h) - (var(--nav-py) * 2));
       display: grid;
@@ -206,11 +193,13 @@
       line-height: 1.06;
       letter-spacing: -0.7px;
     }
+
     h2{
       margin: 0 0 10px;
       font-size: clamp(24px, 3vw, 36px);
       letter-spacing: -0.5px;
     }
+
     p{
       margin: 0 0 12px;
       font-size: 16px;
@@ -232,15 +221,17 @@
       width: fit-content;
       margin-bottom: 14px;
     }
+
     .dot{
-      width: 8px; height: 8px; border-radius: 999px;
+      width: 8px; height: 8px;
+      border-radius: 999px;
       background: var(--accent);
       box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent), transparent 82%);
     }
 
     .split{
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1fr 1fr;
       gap: clamp(14px, 2.6vw, 22px);
       align-items: start;
       margin-top: 12px;
@@ -261,6 +252,7 @@
       align-items: start;
       color: color-mix(in oklab, var(--text), var(--muted) 32%);
     }
+
     .check{
       width: 18px; height: 18px;
       border-radius: 6px;
@@ -272,20 +264,11 @@
     .check::after{
       content: "";
       position: absolute;
-      inset: 0;
-      margin: auto;
       width: 8px; height: 4px;
       border-left: 2px solid var(--accent);
       border-bottom: 2px solid var(--accent);
       transform: rotate(-45deg);
-      top: 5px; left: 4px;
-    }
-
-    .subpanel{
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
-      background: color-mix(in oklab, var(--surface-solid), transparent 12%);
+      top: 6px; left: 5px;
     }
 
     .services{
@@ -324,7 +307,6 @@
       border: 1px solid var(--border);
       background: color-mix(in oklab, var(--surface-solid), transparent 12%);
       font-weight: 700;
-      color: var(--text);
       width: fit-content;
     }
     .email:hover{
@@ -345,53 +327,50 @@
 
 <body>
   <header>
-    <div class="container nav" role="navigation" aria-label="Primary">
+    <div class="container nav">
       <a class="brand" href="#about" aria-label="NimLogic Systems Home">
         <span class="mark" aria-hidden="true"></span>
         <span>
           <strong>NimLogic Systems</strong>
-          <span>Practical IT & security</span>
+          <span class="tag">Practical IT & security</span>
         </span>
       </a>
 
-      <div class="nav-links">
+      <nav class="nav-links" aria-label="Primary">
         <a class="pill" href="#about" data-nav="about">About</a>
         <a class="pill" href="#services" data-nav="services">Services</a>
         <a class="pill primary" href="#contact" data-nav="contact">Contact</a>
-      </div>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- ABOUT (now boxed like Services/Contact) -->
-    <section id="about" aria-labelledby="aboutTitle">
+    <section id="about">
       <div class="container">
         <div class="panel">
           <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Simple for leaders. Disciplined under the hood.</span></div>
-          <h1 id="aboutTitle">Reliable IT that reduces risk without adding complexity.</h1>
-
+          <h1>Reliable IT that reduces risk without adding complexity.</h1>
           <p>
             NimLogic Systems helps small and mid-sized organizations improve stability and security with clear priorities and minimal disruption.
             You get a plan your team can follow, and improvements you can verify.
           </p>
 
-          <div class="split" aria-label="About and deliverables">
+          <div class="split">
             <div>
               <h2 style="margin-top:0;">Outcomes</h2>
-              <ul class="list" aria-label="Outcomes list">
+              <ul class="list">
                 <li><span class="check" aria-hidden="true"></span><span><strong>Clear priorities</strong> tied to business impact.</span></li>
                 <li><span class="check" aria-hidden="true"></span><span><strong>Fewer surprises</strong> from outages and security gaps.</span></li>
                 <li><span class="check" aria-hidden="true"></span><span><strong>Maintainable results</strong> with documentation and ownership.</span></li>
               </ul>
             </div>
 
-            <!-- “What you receive” is now part of the About box, not a separate big box -->
-            <div class="subpanel" aria-label="What you receive">
+            <div>
               <h2 style="margin-top:0;">What you receive</h2>
-              <ul class="list" aria-label="Deliverables">
-                <li><span class="check" aria-hidden="true"></span><span>Prioritized roadmap</span></li>
-                <li><span class="check" aria-hidden="true"></span><span>Scoped plan with timelines</span></li>
-                <li><span class="check" aria-hidden="true"></span><span>Documentation for continuity</span></li>
+              <ul class="list">
+                <li><span class="check" aria-hidden="true"></span><span><strong>Prioritized roadmap</strong> focused on the highest-value changes first.</span></li>
+                <li><span class="check" aria-hidden="true"></span><span><strong>Scoped plan</strong> with timelines and clear responsibilities.</span></li>
+                <li><span class="check" aria-hidden="true"></span><span><strong>Documentation</strong> that supports continuity and reduces key-person risk.</span></li>
               </ul>
             </div>
           </div>
@@ -400,11 +379,10 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" aria-labelledby="servicesTitle">
+    <section id="services">
       <div class="container">
         <div class="panel">
-          <h2 id="servicesTitle">Services</h2>
+          <h2>Services</h2>
           <p>
             Everything is delivered with clear scope and outcomes. The focus stays on reliability, risk reduction, and operational clarity.
           </p>
@@ -427,11 +405,10 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" aria-labelledby="contactTitle">
+    <section id="contact">
       <div class="container">
         <div class="panel">
-          <h2 id="contactTitle">Contact</h2>
+          <h2>Contact</h2>
           <p>
             Email is the simplest way to start. If you include your timeline and the main issue you want solved, you’ll get a clear next step.
           </p>
@@ -442,38 +419,37 @@
   </main>
 
   <footer>
-    © <span id="year"></span> NimLogic Systems. All rights reserved.
+    © <span id="y"></span> NimLogic Systems. All rights reserved.
   </footer>
 
   <script>
-    // Minimal enhancement: active nav state + year.
     (() => {
-      document.getElementById('year').textContent = String(new Date().getFullYear());
+      const y = document.getElementById('y');
+      if (y) y.textContent = String(new Date().getFullYear());
 
-      const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
-      const sections = navLinks
-        .map(a => document.querySelector(a.getAttribute('href')))
-        .filter(Boolean);
+      const links = Array.from(document.querySelectorAll('[data-nav]'));
+      const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
 
-      if (!('IntersectionObserver' in window) || sections.length === 0) return;
+      if (!('IntersectionObserver' in window) || targets.length === 0) return;
 
-      const byId = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
-
-      const setActive = (id) => {
-        navLinks.forEach(a => a.setAttribute('aria-current', 'false'));
-        const active = byId.get(id);
+      const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+      const set = (id) => {
+        for (const a of links) a.setAttribute('aria-current', 'false');
+        const active = map.get(id);
         if (active) active.setAttribute('aria-current', 'true');
       };
 
-      const obs = new IntersectionObserver((entries) => {
-        const top = entries
-          .filter(e => e.isIntersecting)
-          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (top) setActive(top.target.id);
+      const io = new IntersectionObserver((entries) => {
+        let best = null;
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+        }
+        if (best) set(best.target.id);
       }, { threshold: [0.35, 0.55, 0.75] });
 
-      sections.forEach(s => obs.observe(s));
-      setActive('about');
+      for (const t of targets) io.observe(t);
+      set('about');
     })();
   </script>
 </body>
