@@ -187,38 +187,6 @@
       margin: 12px 0 14px;
     }
 
-    .cta{
-      margin-top: 14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;
-      justify-content:center;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 650;
-      cursor:pointer;
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
-      white-space: nowrap;
-    }
-    .btn:hover{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(125,211,252,.30);
-      text-decoration:none;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.18));
-      border-color: rgba(125,211,252,.35);
-    }
-    .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
-
     /* Footer */
     footer{
       border-top: 1px solid rgba(255,255,255,.08);
@@ -263,7 +231,7 @@
     </div>
   </div>
 
-  <!-- Page header -->
+  <!-- Page header (no extra buttons) -->
   <header class="hero">
     <div class="wrap">
       <h1>Security & Reliability</h1>
@@ -271,11 +239,6 @@
         NimLogic Systems applies a practical, baseline-driven approach to security and reliability.
         The objective is to reduce common failure modes, not to build bespoke or fragile environments.
       </p>
-
-      <div class="cta" style="margin-top:16px;">
-        <a class="btn primary" href="how-we-work.html">How We Work</a>
-        <a class="btn" href="contact.html">Contact</a>
-      </div>
     </div>
   </header>
 
@@ -300,7 +263,7 @@
           <div class="divider"></div>
 
           <h3>Shared responsibility</h3>
-          <p>
+          <p style="margin-bottom:0;">
             NimLogic secures the platform layer. Clients remain responsible for content, credentials they manage,
             and compliance obligations specific to their industry.
           </p>
@@ -330,11 +293,6 @@
           </ul>
         </section>
 
-      </div>
-
-      <div class="cta" style="margin-top:18px;">
-        <a class="btn primary" href="pricing.html">View Pricing</a>
-        <a class="btn" href="contact.html">Contact</a>
       </div>
     </div>
   </main>
