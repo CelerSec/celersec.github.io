@@ -2,589 +2,484 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="NimLogic Systems pricing for managed WordPress hosting and related services." />
   <title>NimLogic Systems — Pricing</title>
-  <meta name="description" content="Managed WordPress hosting and IT services pricing from NimLogic Systems." />
 
   <style>
     :root{
-      --bg0:#071225;
-      --bg1:#0b1f3a;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.10);
-      --stroke: rgba(255,255,255,.14);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --muted2: rgba(255,255,255,.58);
-      --accent:#7dd3fc;
-      --accent2:#60a5fa;
-      --good:#86efac;
-      --warn:#fbbf24;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --shadow2: 0 10px 30px rgba(0,0,0,.30);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1120px;
-      --ring: 0 0 0 4px rgba(125,211,252,.16);
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --max: 1100px;
+      --pad: clamp(16px, 3vw, 28px);
+      --nav-h: 96px;
+      --nav-py: 14px;
+      --radius: 22px;
+
+      --bg: #f7fafc;
+      --surface: rgba(255,255,255,0.78);
+      --surface-solid: #ffffff;
+      --text: #0b1220;
+      --muted: #4b5a74;
+      --border: rgba(15, 23, 42, 0.12);
+      --shadow: rgba(15, 23, 42, 0.10);
+      --accent: #2563eb;
+
+      --bg1: radial-gradient(900px 600px at 12% 8%, rgba(37,99,235,0.13), transparent 60%);
+      --bg2: radial-gradient(900px 650px at 88% 20%, rgba(37,99,235,0.08), transparent 62%);
+      --bg3: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(247,250,252,0.88));
+      --bgimg: var(--bg1), var(--bg2), var(--bg3);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #070a12;
+        --surface: rgba(17, 24, 39, 0.64);
+        --surface-solid: #0b1220;
+        --text: #eef2ff;
+        --muted: #b6c1d6;
+        --border: rgba(148, 163, 184, 0.18);
+        --shadow: rgba(0,0,0,0.45);
+        --accent: #60a5fa;
+
+        --bg1: radial-gradient(900px 600px at 12% 8%, rgba(96,165,250,0.18), transparent 62%);
+        --bg2: radial-gradient(900px 650px at 88% 20%, rgba(96,165,250,0.12), transparent 66%);
+        --bg3: linear-gradient(180deg, rgba(7,10,18,0.92), rgba(7,10,18,0.92));
+        --bgimg: var(--bg1), var(--bg2), var(--bg3);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(125,211,252,.20), transparent 55%),
-        radial-gradient(900px 500px at 90% 0%, rgba(96,165,250,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      background-image: var(--bgimg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 100vh;
     }
 
-    a{color:inherit; text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .container{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
-    /* Top nav */
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: var(--nav-h);
+      padding: var(--nav-py) 0;
+      background: var(--surface);
       backdrop-filter: blur(10px);
-      background: rgba(7,18,37,.55);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 220px;
-    }
-    .brand img{
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 22px rgba(0,0,0,.25));
-    }
-    .brand .name{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-    .brand .name strong{
-      font-size: 16px;
-      letter-spacing:.2px;
-    }
-    .brand .name span{
-      font-size: 12px;
-      color: var(--muted2);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 28px var(--shadow);
     }
 
-    .navlinks{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
     }
+
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-wrap{
+      padding: 6px;
+      border-radius: 14px;
+      background: color-mix(in oklab, var(--surface-solid), transparent 8%);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 26px var(--shadow);
+    }
+
+    .logo{
+      height: 56px;
+      width: auto;
+      display: block;
+    }
+
+    .brand strong{ display:block; font-size:15px; }
+    .brand .tag{ font-size:12px; color:var(--muted); }
+
+    .nav-links{ display:flex; gap:10px; flex-wrap: wrap; }
+
     .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border:1px solid rgba(255,255,255,.10);
+      font-size: 14px;
+      padding: 10px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      box-shadow: 0 10px 20px rgba(0,0,0,.15);
-      font-size: 13px;
-      color: var(--muted);
+      border: 1px solid transparent;
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
+      text-decoration: none;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+      white-space: nowrap;
     }
     .pill:hover{
-      background: rgba(255,255,255,.06);
-      border-color: rgba(125,211,252,.30);
-      text-decoration:none;
+      border-color: var(--border);
+      background: color-mix(in oklab, var(--surface-solid), transparent 12%);
+      transform: translateY(-1px);
+      text-decoration: none;
     }
+
     .pill.primary{
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.20));
-      border-color: rgba(125,211,252,.35);
-      color: var(--text);
+      background: var(--accent);
+      color: #fff;
+      font-weight: 650;
+    }
+    .pill.primary:hover{
+      background: color-mix(in oklab, var(--accent), #000 8%);
+      border-color: transparent;
     }
 
-    /* Hero */
-    .hero{
-      position:relative;
-      padding: 54px 0 26px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 20px;
-      align-items: start;
-    }
-    .hero h1{
-      margin:0 0 10px;
-      font-size: 40px;
-      letter-spacing: -0.6px;
-    }
-    .hero p{
-      margin:0 0 18px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
-      max-width: 62ch;
+    section{
+      padding: clamp(64px, 9vh, 96px) 0;
     }
 
-    .hero-card{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding: 16px;
+    .panel{
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px var(--shadow);
+      padding: clamp(22px, 3vw, 36px);
     }
-    .hero-card h3{
-      margin:0 0 8px;
-      font-size: 14px;
-      letter-spacing:.2px;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-    .hero-card ul{
-      margin:0;
-      padding:0 0 0 18px;
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 14px;
-    }
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 14px;
-    }
-    .badge{
+
+    .kicker{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:color-mix(in oklab,var(--surface-solid),transparent 10%);
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:16px;
     }
+
     .dot{
-      width:8px; height:8px; border-radius:999px; background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(125,211,252,.14);
+      width:8px;height:8px;border-radius:999px;background:var(--accent);
+      box-shadow:0 0 0 4px color-mix(in oklab,var(--accent),transparent 82%);
     }
 
-    /* Mountain/wave backdrop */
-    .backdrop{
-      position:absolute;
-      inset: auto 0 -2px 0;
-      height: 220px;
-      pointer-events:none;
-      opacity: .92;
-    }
-    .backdrop svg{width:100%; height:100%; display:block}
+    h1{ font-size: clamp(32px, 4vw, 52px); margin:0 0 16px; }
+    h2{ font-size: clamp(24px, 3vw, 36px); margin:0 0 12px; }
+    h3{ margin: 0 0 10px; font-size: 18px; }
 
-    /* Pricing */
-    .section{
-      padding: 24px 0 56px;
-      position:relative;
-    }
-    .section h2{
-      margin: 0 0 10px;
-      font-size: 22px;
-      letter-spacing: -0.2px;
-    }
-    .sub{
-      margin:0 0 18px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-      max-width: 80ch;
+    p{
+      line-height:1.7;
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
+      max-width: 78ch;
+      margin: 0 0 12px;
     }
 
+    /* Pricing grid */
     .controls{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
-      margin: 18px 0 18px;
+      margin-top: 14px;
     }
 
     .toggle{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
+      gap:6px;
+      border:1px solid var(--border);
+      background: color-mix(in oklab,var(--surface-solid),transparent 10%);
       border-radius: 999px;
       padding: 6px;
-      box-shadow: var(--shadow2);
+      box-shadow: 0 10px 26px var(--shadow);
       user-select:none;
     }
     .toggle button{
       border:0;
       background:transparent;
-      color: var(--muted);
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
       padding: 10px 12px;
       border-radius: 999px;
       cursor:pointer;
       font-size: 13px;
+      font-weight: 650;
     }
     .toggle button.active{
-      background: rgba(125,211,252,.18);
-      color: var(--text);
-      box-shadow: var(--ring);
-    }
-    .note{
-      font-size: 13px;
-      color: var(--muted2);
+      background: var(--accent);
+      color: #fff;
     }
 
-    .grid{
+    .note{
+      font-size: 13px;
+      color: color-mix(in oklab, var(--text), var(--muted) 55%);
+      max-width: 64ch;
+    }
+
+    .plans{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      align-items:stretch;
+      gap: 18px;
+      margin-top: 22px;
+    }
+    @media(max-width: 920px){
+      .plans{ grid-template-columns: 1fr; }
     }
 
     .plan{
-      border:1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow2);
+      border:1px solid var(--border);
+      border-radius: 18px;
+      background: color-mix(in oklab, var(--surface-solid), transparent 10%);
       padding: 18px;
       display:flex;
       flex-direction:column;
       min-height: 100%;
     }
+
     .plan.featured{
-      border-color: rgba(125,211,252,.35);
-      background: linear-gradient(180deg, rgba(125,211,252,.14), rgba(255,255,255,.05));
-      box-shadow: 0 22px 60px rgba(0,0,0,.45);
-      transform: translateY(-2px);
+      border-color: color-mix(in oklab, var(--accent), var(--border) 25%);
+      box-shadow: 0 16px 40px var(--shadow);
+      position: relative;
     }
-    .plan .tag{
+
+    .plan .tag2{
       display:inline-flex;
-      width:fit-content;
       align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
+      gap:10px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: color-mix(in oklab,var(--surface-solid),transparent 12%);
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
+      font-size: 13px;
       margin-bottom: 12px;
     }
-    .plan h3{
-      margin: 0 0 6px;
-      font-size: 18px;
-      letter-spacing:-.2px;
-    }
-    .plan p{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
+
     .price{
       display:flex;
       align-items:baseline;
-      gap:8px;
-      margin: 6px 0 8px;
+      gap: 10px;
+      margin: 10px 0 8px;
     }
-    .price .amt{
-      font-size: 38px;
-      letter-spacing:-.6px;
+    .amt{
+      font-size: 40px;
       font-weight: 800;
+      letter-spacing: -0.6px;
+      color: var(--text);
     }
-    .price .per{
-      color: var(--muted2);
+    .per{
       font-size: 13px;
+      color: color-mix(in oklab, var(--text), var(--muted) 55%);
     }
-    .strike{
-      color: rgba(255,255,255,.45);
-      text-decoration: line-through;
-      font-size: 13px;
-      margin-left: 6px;
-    }
+
     .fine{
-      color: var(--muted2);
       font-size: 12px;
+      color: color-mix(in oklab, var(--text), var(--muted) 55%);
       margin-bottom: 12px;
     }
+
     .features{
-      margin: 12px 0 16px;
-      padding:0;
-      list-style:none;
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 16px;
       display:flex;
       flex-direction:column;
       gap:10px;
-      color: var(--text);
+      color: color-mix(in oklab, var(--text), var(--muted) 20%);
       font-size: 13px;
-      line-height:1.45;
+      line-height: 1.5;
     }
+
     .features li{
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:flex-start;
     }
+
     .check{
-      width:18px; height:18px; border-radius:6px;
-      background: rgba(134,239,172,.18);
-      border: 1px solid rgba(134,239,172,.30);
+      width:18px;
+      height:18px;
+      border-radius: 8px;
+      border:1px solid var(--border);
+      background: color-mix(in oklab, var(--accent), transparent 90%);
       flex: 0 0 18px;
-      position:relative;
       margin-top: 1px;
+      position: relative;
     }
     .check:after{
       content:"";
       position:absolute;
       left:5px; top:3px;
       width:6px; height:10px;
-      border-right:2px solid rgba(255,255,255,.92);
-      border-bottom:2px solid rgba(255,255,255,.92);
+      border-right:2px solid color-mix(in oklab, var(--text), transparent 10%);
+      border-bottom:2px solid color-mix(in oklab, var(--text), transparent 10%);
       transform: rotate(40deg);
-      opacity:.95;
+      opacity:.9;
     }
 
-    .cta{
-      margin-top:auto;
+    .cta-row{
       display:flex;
-      flex-direction:column;
       gap:10px;
+      flex-wrap:wrap;
+      margin-top: auto;
     }
+
     .btn{
       display:inline-flex;
-      justify-content:center;
       align-items:center;
+      justify-content:center;
       gap:10px;
       padding: 12px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--surface-solid), transparent 12%);
+      color: color-mix(in oklab, var(--text), var(--muted) 15%);
       font-weight: 650;
-      cursor:pointer;
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+      text-decoration:none;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      white-space: nowrap;
     }
     .btn:hover{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(125,211,252,.30);
+      transform: translateY(-1px);
+      border-color: color-mix(in oklab, var(--border), var(--accent) 30%);
+      background: color-mix(in oklab, var(--surface-solid), transparent 6%);
       text-decoration:none;
     }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.18));
-      border-color: rgba(125,211,252,.35);
+      background: var(--accent);
+      border-color: transparent;
+      color:#fff;
     }
-    .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
+    .btn.primary:hover{
+      background: color-mix(in oklab, var(--accent), #000 8%);
+    }
 
-    /* Add-ons / FAQ */
+    /* Add-ons + FAQ */
     .two-col{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 18px;
       margin-top: 18px;
     }
-    .panel{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow2);
-      padding: 18px;
+    @media(max-width: 920px){
+      .two-col{ grid-template-columns: 1fr; }
     }
-    .panel h3{margin:0 0 10px; font-size: 16px;}
-    .panel table{
+
+    table{
       width:100%;
-      border-collapse:collapse;
+      border-collapse: collapse;
       font-size: 13px;
-      color: var(--text);
     }
-    .panel th,.panel td{
+    th, td{
       text-align:left;
-      padding:10px 8px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      vertical-align:top;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
     }
-    .panel th{color: var(--muted); font-weight:650;}
-    .panel td small{color: var(--muted2); display:block; margin-top:4px; line-height:1.35;}
+    th{
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
+      font-weight: 650;
+    }
+    td small{
+      display:block;
+      margin-top: 4px;
+      color: color-mix(in oklab, var(--text), var(--muted) 55%);
+      line-height: 1.4;
+    }
+
     details{
-      border-top: 1px solid rgba(255,255,255,.10);
+      border-top: 1px solid var(--border);
       padding: 12px 0;
     }
-    details:first-of-type{border-top:0; padding-top:0;}
+    details:first-of-type{ border-top: 0; padding-top: 0; }
     summary{
-      cursor:pointer;
-      font-weight:650;
-      color: var(--text);
+      cursor: pointer;
+      font-weight: 650;
+      color: color-mix(in oklab, var(--text), var(--muted) 10%);
     }
     details p{
-      margin:8px 0 0;
-      color: var(--muted);
+      margin: 8px 0 0;
+      color: color-mix(in oklab, var(--text), var(--muted) 35%);
       font-size: 13px;
-      line-height:1.55;
     }
 
-    /* Footer */
     footer{
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(7,18,37,.55);
-      backdrop-filter: blur(10px);
-      padding: 22px 0;
-      color: var(--muted2);
-      font-size: 12px;
-    }
-    .foot{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .foot a{color: var(--muted);}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr; }
-      .grid{grid-template-columns: 1fr;}
-      .two-col{grid-template-columns: 1fr;}
-      .hero h1{font-size: 34px;}
-    }
-    @media (max-width: 420px){
-      .brand img{width:48px;height:48px;}
-      .hero{padding-top: 40px;}
-      .hero h1{font-size: 30px;}
+      border-top:1px solid var(--border);
+      padding:20px;
+      text-align:center;
+      font-size:13px;
+      color: color-mix(in oklab,var(--text),var(--muted) 55%);
+      background: color-mix(in oklab,var(--surface-solid),transparent 25%);
     }
   </style>
 </head>
 
 <body>
-  <!-- Top Nav -->
-  <div class="topbar">
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="index.html" aria-label="NimLogic Systems home">
-          <!-- Keep consistent with your site: Logo0.png -->
-          <img src="Logo0.png" alt="NimLogic Systems logo" />
-          <div class="name">
-            <strong>NimLogic Systems</strong>
-            <span>Managed Hosting • IT Consulting</span>
-          </div>
-        </a>
 
-        <div class="navlinks">
-          <!-- Update these hrefs to match your nimlogic.com structure -->
-          <a class="pill" href="index.html#services">Services</a>
-          <a class="pill" href="index.html#about">About</a>
-          <a class="pill" href="index.html#contact">Contact</a>
-          <a class="pill primary" href="pricing.html" aria-current="page">Pricing</a>
-        </div>
-      </div>
-    </div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html#about" aria-label="NimLogic Systems home">
+      <span class="logo-wrap">
+        <img src="Logo0.png" class="logo" alt="NimLogic Systems logo">
+      </span>
+      <span>
+        <strong>NimLogic Systems</strong>
+        <span class="tag">Web, cloud, and practical IT</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="pill" href="index.html#about">About</a>
+      <a class="pill" href="index.html#services">Services</a>
+      <a class="pill primary" href="pricing.html" aria-current="page">Pricing</a>
+      <a class="pill" href="index.html#contact">Contact</a>
+    </nav>
   </div>
+</header>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <h1>Pricing that stays predictable.</h1>
-          <p>
-            NimLogic Systems provides managed WordPress hosting designed for small businesses that want a stable,
-            secure site without ongoing technical overhead. Plans include core automation—updates, backups, and monitoring—
-            with clear boundaries to keep the service low-touch and reliable.
-          </p>
+<main>
 
-          <div class="controls" role="group" aria-label="Billing frequency">
-            <div class="toggle" aria-label="Monthly or annual billing">
-              <button id="btnMonthly" class="active" type="button">Monthly</button>
-              <button id="btnAnnual" type="button">Annual <span style="color:var(--good); font-weight:700;">(save 15%)</span></button>
-            </div>
-            <div class="note">Ecommerce is available as a premium add-on with strict guardrails.</div>
-          </div>
-        </div>
-
-        <aside class="hero-card">
-          <h3>What you get by default</h3>
-          <ul>
-            <li>Automated WordPress provisioning and SSL</li>
-            <li>Nightly backups with retained restore points</li>
-            <li>Security baseline and routine patching</li>
-            <li>Uptime monitoring and incident notifications</li>
-            <li>Clear scope to keep support low and service consistent</li>
-          </ul>
-          <div class="badge-row" aria-label="Service badges">
-            <span class="badge"><span class="dot"></span>Managed Updates</span>
-            <span class="badge"><span class="dot"></span>Backups</span>
-            <span class="badge"><span class="dot"></span>Monitoring</span>
-          </div>
-        </aside>
-      </div>
-    </div>
-
-    <div class="backdrop" aria-hidden="true">
-      <!-- Simple “clouds + mountains” SVG to match your tranquil theme -->
-      <svg viewBox="0 0 1440 240" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="mtn" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="rgba(125,211,252,.22)"/>
-            <stop offset="1" stop-color="rgba(255,255,255,0)"/>
-          </linearGradient>
-          <linearGradient id="cloud" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0" stop-color="rgba(255,255,255,.10)"/>
-            <stop offset="1" stop-color="rgba(255,255,255,.03)"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Clouds -->
-        <path d="M120 70c30-28 78-20 92 14 26-16 60-7 68 20 25-6 48 12 48 36H62c-20 0-36-15-36-33 0-20 18-37 40-37 9 0 18 3 24 7z"
-              fill="url(#cloud)" opacity=".85"/>
-        <path d="M980 52c34-32 90-24 106 16 30-18 70-7 78 24 28-7 54 14 54 42H880c-24 0-44-18-44-40 0-25 23-46 52-46 12 0 23 3 32 8z"
-              fill="url(#cloud)" opacity=".70"/>
-
-        <!-- Mountains -->
-        <path d="M0 210L240 120l160 90 210-120 180 120 220-150 210 150 220-120 0 120H0z"
-              fill="url(#mtn)" opacity=".95"/>
-        <path d="M0 240L250 155l140 85 220-120 170 120 220-150 220 150 220-115 0 115H0z"
-              fill="rgba(255,255,255,.05)" opacity=".9"/>
-      </svg>
-    </div>
-  </header>
-
-  <!-- Pricing -->
-  <main class="section">
-    <div class="wrap">
-      <h2>Managed WordPress Hosting</h2>
-      <p class="sub">
-        Plans are built for low-maintenance business sites. We avoid “unlimited everything” promises and instead deliver
-        consistent performance through standardized automation and guardrails. If you need custom development, integrations,
-        or complex workflows, we can scope that separately.
+<section>
+  <div class="container">
+    <div class="panel">
+      <div class="kicker"><span class="dot"></span> Clear scope. Predictable support. Stable platforms.</div>
+      <h1>Pricing that stays predictable.</h1>
+      <p>
+        Plans are built for low-maintenance business sites. We standardize the stack so updates, backups, and monitoring
+        remain reliable and low-touch. If you need custom development, complex integrations, or special compliance needs,
+        we can scope that separately.
       </p>
 
-      <div class="grid" aria-label="Pricing plans">
+      <div class="controls" role="group" aria-label="Billing frequency">
+        <div class="toggle" aria-label="Monthly or annual billing">
+          <button id="btnMonthly" class="active" type="button">Monthly</button>
+          <button id="btnAnnual" type="button">Annual (save 15%)</button>
+        </div>
+        <div class="note">
+          Ecommerce is available as a premium add-on with guardrails (Stripe-only, strict plugin policy).
+        </div>
+      </div>
+
+      <div class="plans" aria-label="Pricing plans">
         <!-- Starter -->
         <section class="plan" aria-label="Starter plan">
-          <div class="tag">For basic brochure sites</div>
+          <div class="tag2"><span class="dot"></span>For basic brochure sites</div>
           <h3>Starter</h3>
-          <p>Reliable hosting with SSL and automated provisioning. Best for simple pages and minimal change.</p>
+          <p>Reliable hosting with SSL and automated provisioning. Best for simple sites with minimal change.</p>
 
           <div class="price">
             <div class="amt" data-monthly="15" data-annual="13">$15</div>
-            <div class="per">/ month</div>
-            <div class="strike" data-strike-monthly="" data-strike-annual="$15"></div>
+            <div class="per" id="per1">/ month</div>
           </div>
-          <div class="fine" data-fine-monthly="Billed monthly. Cancel anytime."
+          <div class="fine"
+               data-fine-monthly="Billed monthly. Cancel anytime."
                data-fine-annual="Billed annually. Equivalent to $13/mo (15% savings).">
             Billed monthly. Cancel anytime.
           </div>
@@ -597,24 +492,24 @@
             <li><span class="check"></span><span>Baseline security hardening</span></li>
           </ul>
 
-          <div class="cta">
-            <a class="btn" href="index.html#contact">Request Starter</a>
-            <a class="btn primary" href="index.html#contact">Talk to NimLogic</a>
+          <div class="cta-row">
+            <a class="btn primary" href="index.html#contact">Request Starter</a>
+            <a class="btn" href="index.html#contact">Ask a Question</a>
           </div>
         </section>
 
-        <!-- Managed (Featured) -->
+        <!-- Managed -->
         <section class="plan featured" aria-label="Managed plan">
-          <div class="tag">Most popular</div>
+          <div class="tag2"><span class="dot"></span>Most popular</div>
           <h3>Managed</h3>
-          <p>Everything in Starter, plus automated updates with rollback options and priority care for routine issues.</p>
+          <p>Everything in Starter, plus automated updates with rollback options and priority care for routine incidents.</p>
 
           <div class="price">
             <div class="amt" data-monthly="35" data-annual="30">$35</div>
-            <div class="per">/ month</div>
-            <div class="strike" data-strike-monthly="" data-strike-annual="$35"></div>
+            <div class="per" id="per2">/ month</div>
           </div>
-          <div class="fine" data-fine-monthly="Billed monthly. Best value for low-touch operations."
+          <div class="fine"
+               data-fine-monthly="Billed monthly. Best value for low-touch operations."
                data-fine-annual="Billed annually. Equivalent to $30/mo (15% savings).">
             Billed monthly. Best value for low-touch operations.
           </div>
@@ -627,7 +522,7 @@
             <li><span class="check"></span><span>Priority response for hosting-related incidents</span></li>
           </ul>
 
-          <div class="cta">
+          <div class="cta-row">
             <a class="btn primary" href="index.html#contact">Start Managed</a>
             <a class="btn" href="#faq">View FAQ</a>
           </div>
@@ -635,16 +530,16 @@
 
         <!-- Business -->
         <section class="plan" aria-label="Business plan">
-          <div class="tag">For higher-visibility sites</div>
+          <div class="tag2"><span class="dot"></span>For higher-visibility sites</div>
           <h3>Business</h3>
-          <p>For organizations that need stronger availability, longer retention, and change support within scope.</p>
+          <p>For organizations that need longer retention, stronger availability, and limited content edits within scope.</p>
 
           <div class="price">
             <div class="amt" data-monthly="55" data-annual="47">$55</div>
-            <div class="per">/ month</div>
-            <div class="strike" data-strike-monthly="" data-strike-annual="$55"></div>
+            <div class="per" id="per3">/ month</div>
           </div>
-          <div class="fine" data-fine-monthly="Billed monthly. Includes limited routine changes."
+          <div class="fine"
+               data-fine-monthly="Billed monthly. Includes limited routine changes."
                data-fine-annual="Billed annually. Equivalent to $47/mo (15% savings).">
             Billed monthly. Includes limited routine changes.
           </div>
@@ -653,21 +548,20 @@
             <li><span class="check"></span><span>Everything in Managed</span></li>
             <li><span class="check"></span><span>Longer backups (90-day retention)</span></li>
             <li><span class="check"></span><span>Performance baseline tuning (within standard stack)</span></li>
-            <li><span class="check"></span><span>Monthly health report (uptime, updates, backup status)</span></li>
+            <li><span class="check"></span><span>Monthly health report (uptime, updates, backups)</span></li>
             <li><span class="check"></span><span>Up to 30 minutes/month of minor site edits</span></li>
           </ul>
 
-          <div class="cta">
-            <a class="btn" href="index.html#contact">Request Business</a>
-            <a class="btn primary" href="index.html#contact">Schedule a Call</a>
+          <div class="cta-row">
+            <a class="btn primary" href="index.html#contact">Request Business</a>
+            <a class="btn" href="index.html#contact">Discuss Needs</a>
           </div>
         </section>
       </div>
 
-      <!-- Add-ons + FAQ -->
       <div class="two-col">
-        <section class="panel" aria-label="Add-ons">
-          <h3>Add-ons</h3>
+        <section class="panel" aria-label="Add-ons" style="padding:18px;">
+          <h2 style="margin-bottom:12px;">Add-ons</h2>
           <table>
             <thead>
               <tr>
@@ -686,7 +580,7 @@
               <tr>
                 <td>
                   Email (Google Workspace / Microsoft 365)
-                  <small>We can set up and administer email; licensing is passed through at cost.</small>
+                  <small>Setup and administration available; licensing is passed through at cost.</small>
                 </td>
                 <td>Scoped</td>
               </tr>
@@ -702,7 +596,7 @@
               </tr>
               <tr>
                 <td>
-                  Website updates/content work
+                  Website updates / content work
                   <small>For changes beyond plan allowance. Batch work is preferred to keep costs down.</small>
                 </td>
                 <td>$95/hr</td>
@@ -711,105 +605,94 @@
           </table>
         </section>
 
-        <section class="panel" id="faq" aria-label="FAQ">
-          <h3>FAQ</h3>
+        <section class="panel" id="faq" aria-label="FAQ" style="padding:18px;">
+          <h2 style="margin-bottom:12px;">FAQ</h2>
 
           <details open>
             <summary>What’s included in “automated updates”?</summary>
             <p>
-              WordPress core, theme, and plugin updates are applied automatically within a controlled workflow. If an update
-              introduces instability, we revert using backups/restore points. To keep this reliable, we enforce a plugin policy
-              and avoid unsupported customization in the base hosting layer.
+              WordPress core, theme, and plugin updates are applied automatically within a controlled workflow.
+              If an update introduces instability, we revert using backups/restore points. To keep this reliable,
+              we enforce a plugin policy and avoid unsupported customization in the base hosting layer.
             </p>
           </details>
 
           <details>
             <summary>Do you support any plugin/theme?</summary>
             <p>
-              Not universally. We support a standard set that behaves predictably in an automated environment. Unsupported or
-              high-risk plugins may be declined, replaced, or moved to a custom scope to protect platform stability.
+              Not universally. We support a standard set that behaves predictably in an automated environment.
+              Unsupported or high-risk plugins may be declined, replaced, or moved to a custom scope to protect
+              platform stability.
             </p>
           </details>
 
           <details>
             <summary>Is ecommerce possible without a lot of overhead?</summary>
             <p>
-              Yes, if it is tightly scoped. We offer a premium ecommerce add-on with strict guardrails (Stripe-only, standard
-              WooCommerce setup, limited plugin surface area). This reduces security and support risk and makes it profitable.
+              Yes, if it is tightly scoped. We offer a premium ecommerce add-on with strict guardrails (Stripe-only,
+              standard WooCommerce setup, limited plugin surface area). This reduces security and support risk and
+              makes it profitable.
             </p>
           </details>
 
           <details>
             <summary>What happens if I want to leave?</summary>
             <p>
-              You own your content. We can provide a full site export and database dump. If you have a custom domain, you can
-              repoint DNS to another provider at any time.
+              You own your content. We can provide a full site export and database dump. If you have a custom domain,
+              you can repoint DNS to another provider at any time.
             </p>
           </details>
         </section>
       </div>
-    </div>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="wrap">
-      <div class="foot">
-        <div>
-          <strong style="color:rgba(255,255,255,.86)">NimLogic Systems</strong><br />
-          <span>Managed Hosting • Website Design • Cloud Storage • IT Consulting</span>
-        </div>
-        <div>
-          <a href="index.html#contact">Contact</a> ·
-          <a href="index.html#services">Services</a> ·
-          <a href="pricing.html" aria-current="page">Pricing</a>
-          <div style="margin-top:8px;">
-            <span>© <span id="year"></span> NimLogic Systems. All rights reserved.</span>
-          </div>
-        </div>
+      <div style="margin-top:18px;">
+        <a class="btn primary" href="index.html#contact">Contact NimLogic</a>
+        <a class="btn" href="index.html#services">Back to Services</a>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Pricing toggle (monthly vs annual)
-    const btnMonthly = document.getElementById('btnMonthly');
-    const btnAnnual  = document.getElementById('btnAnnual');
+</main>
 
-    const amounts = document.querySelectorAll('.amt');
-    const fine    = document.querySelectorAll('.fine');
-    const perText = document.querySelectorAll('.per');
-    const strikes = document.querySelectorAll('.strike');
+<footer>
+  © <span id="y"></span> NimLogic Systems. All rights reserved.
+</footer>
 
-    function setMode(mode){
-      const annual = mode === 'annual';
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-      btnMonthly.classList.toggle('active', !annual);
-      btnAnnual.classList.toggle('active', annual);
+  // Pricing toggle (monthly vs annual)
+  const btnMonthly = document.getElementById('btnMonthly');
+  const btnAnnual  = document.getElementById('btnAnnual');
 
-      amounts.forEach(el => {
-        const val = annual ? el.dataset.annual : el.dataset.monthly;
-        el.textContent = `$${val}`;
-      });
+  const amounts = document.querySelectorAll('.amt');
+  const fineEls = document.querySelectorAll('.fine');
+  const perEls  = document.querySelectorAll('.per');
 
-      fine.forEach(el => {
-        el.textContent = annual ? el.dataset.fineAnnual : el.dataset.fineMonthly;
-      });
+  function setMode(mode){
+    const annual = mode === 'annual';
 
-      perText.forEach(el => {
-        el.textContent = annual ? '/ month (annual billing)' : '/ month';
-      });
+    btnMonthly.classList.toggle('active', !annual);
+    btnAnnual.classList.toggle('active', annual);
 
-      strikes.forEach(el => {
-        const strikeVal = annual ? el.dataset.strikeAnnual : el.dataset.strikeMonthly;
-        el.textContent = strikeVal ? `was ${strikeVal}` : '';
-      });
-    }
+    amounts.forEach(el => {
+      const val = annual ? el.dataset.annual : el.dataset.monthly;
+      el.textContent = `$${val}`;
+    });
 
-    btnMonthly.addEventListener('click', () => setMode('monthly'));
-    btnAnnual.addEventListener('click', () => setMode('annual'));
+    fineEls.forEach(el => {
+      el.textContent = annual ? el.dataset.fineAnnual : el.dataset.fineMonthly;
+    });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    perEls.forEach(el => {
+      el.textContent = annual ? '/ month (annual billing)' : '/ month';
+    });
+  }
+
+  btnMonthly.addEventListener('click', () => setMode('monthly'));
+  btnAnnual.addEventListener('click', () => setMode('annual'));
+</script>
+
 </body>
 </html>
