@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NimLogic Systems</title>
-  <meta name="description" content="NimLogic Systems provides website design, managed web hosting, cloud storage solutions, and practical IT consulting for small and mid-sized organizations." />
+  <meta name="description" content="NimLogic Systems provides website design, managed hosting, cloud storage solutions, and practical IT consulting for small and mid-sized organizations." />
 
   <style>
     :root{
@@ -16,6 +16,7 @@
       --muted: rgba(255,255,255,.72);
       --muted2: rgba(255,255,255,.58);
       --accent:#7dd3fc;
+      --accent2:#60a5fa;
       --shadow: 0 18px 50px rgba(0,0,0,.35);
       --shadow2: 0 10px 30px rgba(0,0,0,.30);
       --radius2: 26px;
@@ -25,7 +26,6 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -120,7 +120,7 @@
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.2fr .8fr;
       gap: 20px;
       align-items: start;
     }
@@ -158,39 +158,29 @@
       line-height: 1.6;
       font-size: 14px;
     }
-
-    .cta{
-      margin-top: 14px;
+    .badge-row{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;
-      justify-content:center;
-      align-items:center;
       gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 650;
-      cursor:pointer;
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+      margin-top: 14px;
     }
-    .btn:hover{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(125,211,252,.30);
-      text-decoration:none;
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
     }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.18));
-      border-color: rgba(125,211,252,.35);
+    .dot{
+      width:8px; height:8px; border-radius:999px; background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(125,211,252,.14);
     }
-    .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
 
-    /* Backdrop */
+    /* Mountain/wave backdrop */
     .backdrop{
       position:absolute;
       inset: auto 0 -2px 0;
@@ -200,7 +190,7 @@
     }
     .backdrop svg{width:100%; height:100%; display:block}
 
-    /* Services */
+    /* Sections */
     .section{
       padding: 24px 0 56px;
       position:relative;
@@ -252,41 +242,37 @@
       line-height: 1.55;
     }
 
-    /* Contact */
-    .contact{
+    /* CTA buttons */
+    .cta{
+      margin-top: 14px;
       display:flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow2);
-      padding: 18px;
-      margin-top: 18px;
+      gap:10px;
+      flex-wrap:wrap;
     }
-    .contact .left{
-      min-width: 260px;
-    }
-    .contact h2{ margin:0 0 6px; font-size: 18px;}
-    .contact p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.55;}
-    .email{
+    .btn{
       display:inline-flex;
-      align-items:center;
       justify-content:center;
+      align-items:center;
+      gap:10px;
       padding: 12px 14px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
-      font-weight: 700;
-      white-space: nowrap;
+      color: var(--text);
+      font-weight: 650;
+      cursor:pointer;
+      box-shadow: 0 14px 30px rgba(0,0,0,.22);
     }
-    .email:hover{
-      border-color: rgba(125,211,252,.30);
+    .btn:hover{
       background: rgba(255,255,255,.08);
+      border-color: rgba(125,211,252,.30);
       text-decoration:none;
     }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.18));
+      border-color: rgba(125,211,252,.35);
+    }
+    .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
 
     /* Footer */
     footer{
@@ -317,13 +303,16 @@
           <img src="Logo0.png" alt="NimLogic Systems logo" />
           <div class="name">
             <strong>NimLogic Systems</strong>
-            <span>Web • Cloud • Practical IT</span>
+            <span>Managed Hosting • IT Consulting</span>
           </div>
         </a>
 
-        <div class="navlinks">
-          <a class="pill" href="#services">Services</a>
-          <a class="pill" href="#contact">Contact</a>
+        <!-- 6-page navigation -->
+        <div class="navlinks" aria-label="Primary navigation">
+          <a class="pill" href="services.html">Services</a>
+          <a class="pill" href="how-we-work.html">How We Work</a>
+          <a class="pill" href="security.html">Security</a>
+          <a class="pill" href="contact.html">Contact</a>
           <a class="pill primary" href="pricing.html">Pricing</a>
         </div>
       </div>
@@ -335,26 +324,32 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <h1>Professional web and IT services without ongoing complexity.</h1>
+          <h1>Reliable web and IT services, delivered with clear scope.</h1>
           <p>
-            NimLogic Systems delivers clean website design, managed hosting, cloud storage baselines, and IT consulting
-            for small and mid-sized organizations that want dependable outcomes and clear scope.
+            NimLogic Systems provides website design, managed WordPress hosting, cloud storage solutions, and practical IT consulting.
+            The focus is straightforward: stable systems, documented changes, and predictable support.
           </p>
 
           <div class="cta">
-            <a class="btn primary" href="pricing.html">View Pricing</a>
-            <a class="btn" href="#services">Explore Services</a>
+            <a class="btn primary" href="services.html">Explore Services</a>
+            <a class="btn" href="contact.html">Contact</a>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Service summary">
-          <h3>Service areas</h3>
+        <aside class="hero-card" aria-label="Quick summary">
+          <h3>What we deliver</h3>
           <ul>
             <li>Website design and rebuilds</li>
-            <li>Managed WordPress hosting</li>
-            <li>Cloud storage solutions</li>
-            <li>IT consulting and operations support</li>
+            <li>Managed hosting with backups and monitoring</li>
+            <li>Cloud storage baselines and recovery planning</li>
+            <li>Practical IT consulting and operational guidance</li>
           </ul>
+
+          <div class="badge-row" aria-label="Highlights">
+            <span class="badge"><span class="dot"></span>Standardized stack</span>
+            <span class="badge"><span class="dot"></span>Documented changes</span>
+            <span class="badge"><span class="dot"></span>Predictable support</span>
+          </div>
         </aside>
       </div>
     </div>
@@ -385,44 +380,41 @@
     </div>
   </header>
 
-  <!-- Services -->
-  <main class="section" id="services">
+  <!-- Minimal index content: services overview + routing to other pages -->
+  <main class="section">
     <div class="wrap">
-      <h2>Services</h2>
+      <h2>Services, at a glance</h2>
       <p class="sub">
-        Services are delivered with standardized tooling and clear boundaries to keep systems stable and support predictable.
+        NimLogic Systems serves organizations that want a professional web presence and stable IT foundations without ongoing complexity.
+        Details, scope, and delivery process are documented on the service pages.
       </p>
 
-      <div class="grid" aria-label="Services list">
+      <div class="grid" aria-label="Service overview">
         <section class="card">
           <h3>Website Design</h3>
-          <p>Modern, fast-loading sites built for clarity, credibility, and mobile usability. Structured so future updates are straightforward.</p>
+          <p>Modern sites built for clarity and performance. Mobile-first, accessible, and structured for easy future updates.</p>
         </section>
 
         <section class="card">
-          <h3>Managed Web Hosting</h3>
-          <p>Secure hosting with SSL, backups, monitoring, and sensible defaults. Designed to be reliable without constant attention.</p>
+          <h3>Managed WordPress Hosting</h3>
+          <p>Hosting with SSL, backups, and monitoring. Standardized configuration to keep support predictable.</p>
         </section>
 
         <section class="card">
           <h3>Cloud Storage Solutions</h3>
-          <p>Centralized storage with access controls, sharing practices, retention, and recovery planning so data remains usable and protected.</p>
+          <p>Practical file storage baselines: access control, sharing practices, retention, and recovery planning.</p>
         </section>
 
         <section class="card">
           <h3>IT Consulting</h3>
-          <p>Practical guidance on systems, identity, endpoints, and operations focused on reducing recurring issues and operational risk.</p>
+          <p>Guidance on systems and operations that reduces recurring issues and keeps changes documented.</p>
         </section>
       </div>
 
-      <div class="contact" id="contact" aria-label="Contact section">
-        <div class="left">
-          <h2>Contact</h2>
-          <p>Share what you’re trying to build or fix and your timeline. You’ll receive a clear next step.</p>
-        </div>
-        <div class="right">
-          <a class="email" href="mailto:info@nimlogic.com">info@nimlogic.com</a>
-        </div>
+      <div class="cta" style="margin-top:18px;">
+        <a class="btn primary" href="pricing.html">View Pricing</a>
+        <a class="btn" href="how-we-work.html">How We Work</a>
+        <a class="btn" href="security.html">Security Approach</a>
       </div>
     </div>
   </main>
@@ -435,8 +427,10 @@
           <span>Website Design • Managed Hosting • Cloud Storage • IT Consulting</span>
         </div>
         <div>
-          <a href="#services">Services</a> ·
-          <a href="#contact">Contact</a> ·
+          <a href="services.html">Services</a> ·
+          <a href="how-we-work.html">How We Work</a> ·
+          <a href="security.html">Security</a> ·
+          <a href="contact.html">Contact</a> ·
           <a href="pricing.html">Pricing</a>
           <div style="margin-top:8px;">
             <span>© <span id="year"></span> NimLogic Systems. All rights reserved.</span>
