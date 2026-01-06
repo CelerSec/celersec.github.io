@@ -101,6 +101,7 @@
       box-shadow: 0 10px 20px rgba(0,0,0,.15);
       font-size: 13px;
       color: var(--muted);
+      white-space: nowrap;
     }
     .pill:hover{
       background: rgba(255,255,255,.06);
@@ -180,7 +181,7 @@
       box-shadow: 0 0 0 4px rgba(125,211,252,.14);
     }
 
-    /* Mountain/wave backdrop */
+    /* Backdrop */
     .backdrop{
       position:absolute;
       inset: auto 0 -2px 0;
@@ -242,38 +243,6 @@
       line-height: 1.55;
     }
 
-    /* CTA buttons */
-    .cta{
-      margin-top: 14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;
-      justify-content:center;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 650;
-      cursor:pointer;
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
-    }
-    .btn:hover{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(125,211,252,.30);
-      text-decoration:none;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.18));
-      border-color: rgba(125,211,252,.35);
-    }
-    .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
-
     /* Footer */
     footer{
       border-top: 1px solid rgba(255,255,255,.08);
@@ -307,13 +276,13 @@
           </div>
         </a>
 
-        <!-- 6-page navigation -->
+        <!-- Pricing is NOT highlighted on index -->
         <div class="navlinks" aria-label="Primary navigation">
           <a class="pill" href="services.html">Services</a>
           <a class="pill" href="how-we-work.html">How We Work</a>
           <a class="pill" href="security.html">Security</a>
           <a class="pill" href="contact.html">Contact</a>
-          <a class="pill primary" href="pricing.html">Pricing</a>
+          <a class="pill" href="pricing.html">Pricing</a>
         </div>
       </div>
     </div>
@@ -329,11 +298,6 @@
             NimLogic Systems provides website design, managed WordPress hosting, cloud storage solutions, and practical IT consulting.
             The focus is straightforward: stable systems, documented changes, and predictable support.
           </p>
-
-          <div class="cta">
-            <a class="btn primary" href="services.html">Explore Services</a>
-            <a class="btn" href="contact.html">Contact</a>
-          </div>
         </div>
 
         <aside class="hero-card" aria-label="Quick summary">
@@ -380,13 +344,13 @@
     </div>
   </header>
 
-  <!-- Minimal index content: services overview + routing to other pages -->
+  <!-- Minimal index content -->
   <main class="section">
     <div class="wrap">
       <h2>Services, at a glance</h2>
       <p class="sub">
         NimLogic Systems serves organizations that want a professional web presence and stable IT foundations without ongoing complexity.
-        Details, scope, and delivery process are documented on the service pages.
+        Details, scope, and delivery process are documented on the individual pages.
       </p>
 
       <div class="grid" aria-label="Service overview">
@@ -409,12 +373,6 @@
           <h3>IT Consulting</h3>
           <p>Guidance on systems and operations that reduces recurring issues and keeps changes documented.</p>
         </section>
-      </div>
-
-      <div class="cta" style="margin-top:18px;">
-        <a class="btn primary" href="pricing.html">View Pricing</a>
-        <a class="btn" href="how-we-work.html">How We Work</a>
-        <a class="btn" href="security.html">Security Approach</a>
       </div>
     </div>
   </main>
