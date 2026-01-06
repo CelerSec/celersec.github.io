@@ -4,25 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NimLogic Systems — Pricing</title>
-  <meta name="description" content="Managed WordPress hosting and IT services pricing from NimLogic Systems." />
+  <meta name="description" content="NimLogic Systems pricing for managed WordPress hosting and related services." />
 
   <style>
     :root{
       --bg0:#071225;
       --bg1:#0b1f3a;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.10);
       --stroke: rgba(255,255,255,.14);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.72);
       --muted2: rgba(255,255,255,.58);
       --accent:#7dd3fc;
-      --accent2:#60a5fa;
-      --good:#86efac;
-      --warn:#fbbf24;
       --shadow: 0 18px 50px rgba(0,0,0,.35);
       --shadow2: 0 10px 30px rgba(0,0,0,.30);
-      --radius: 18px;
       --radius2: 26px;
       --max: 1120px;
       --ring: 0 0 0 4px rgba(125,211,252,.16);
@@ -30,9 +24,10 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
         radial-gradient(1200px 600px at 20% -10%, rgba(125,211,252,.20), transparent 55%),
@@ -105,6 +100,7 @@
       box-shadow: 0 10px 20px rgba(0,0,0,.15);
       font-size: 13px;
       color: var(--muted);
+      white-space: nowrap;
     }
     .pill:hover{
       background: rgba(255,255,255,.06);
@@ -117,16 +113,10 @@
       color: var(--text);
     }
 
-    /* Hero */
+    /* Header */
     .hero{
       position:relative;
-      padding: 54px 0 26px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 20px;
-      align-items: start;
+      padding: 54px 0 18px;
     }
     .hero h1{
       margin:0 0 10px;
@@ -134,82 +124,17 @@
       letter-spacing: -0.6px;
     }
     .hero p{
-      margin:0 0 18px;
+      margin:0;
       color: var(--muted);
       font-size: 16px;
       line-height: 1.55;
-      max-width: 62ch;
+      max-width: 90ch;
     }
 
-    .hero-card{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding: 16px;
-    }
-    .hero-card h3{
-      margin:0 0 8px;
-      font-size: 14px;
-      letter-spacing:.2px;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-    .hero-card ul{
-      margin:0;
-      padding:0 0 0 18px;
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 14px;
-    }
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 14px;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .dot{
-      width:8px; height:8px; border-radius:999px; background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(125,211,252,.14);
-    }
-
-    /* Mountain/wave backdrop */
-    .backdrop{
-      position:absolute;
-      inset: auto 0 -2px 0;
-      height: 220px;
-      pointer-events:none;
-      opacity: .92;
-    }
-    .backdrop svg{width:100%; height:100%; display:block}
-
-    /* Pricing */
+    /* Content */
     .section{
-      padding: 24px 0 56px;
+      padding: 12px 0 56px;
       position:relative;
-    }
-    .section h2{
-      margin: 0 0 10px;
-      font-size: 22px;
-      letter-spacing: -0.2px;
-    }
-    .sub{
-      margin:0 0 18px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-      max-width: 80ch;
     }
 
     .controls{
@@ -218,18 +143,17 @@
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
-      margin: 18px 0 18px;
+      margin: 18px 0 0;
     }
-
     .toggle{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      border:1px solid rgba(255,255,255,.14);
+      gap:6px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
       border-radius: 999px;
       padding: 6px;
-      box-shadow: var(--shadow2);
+      box-shadow: 0 10px 20px rgba(0,0,0,.15);
       user-select:none;
     }
     .toggle button{
@@ -240,22 +164,30 @@
       border-radius: 999px;
       cursor:pointer;
       font-size: 13px;
+      font-weight: 750;
     }
     .toggle button.active{
-      background: rgba(125,211,252,.18);
+      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.20));
+      border: 1px solid rgba(125,211,252,.35);
       color: var(--text);
-      box-shadow: var(--ring);
     }
     .note{
       font-size: 13px;
       color: var(--muted2);
+      max-width: 70ch;
+      line-height: 1.45;
     }
 
-    .grid{
+    .plans{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
+      margin-top: 18px;
       align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .plans{ grid-template-columns: 1fr; }
+      .hero h1{font-size: 34px;}
     }
 
     .plan{
@@ -269,71 +201,64 @@
       min-height: 100%;
     }
     .plan.featured{
-      border-color: rgba(125,211,252,.35);
-      background: linear-gradient(180deg, rgba(125,211,252,.14), rgba(255,255,255,.05));
-      box-shadow: 0 22px 60px rgba(0,0,0,.45);
-      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: rgba(125,211,252,.28);
     }
-    .plan .tag{
+
+    .tag2{
       display:inline-flex;
-      width:fit-content;
       align-items:center;
-      gap:8px;
+      gap:10px;
+      width: fit-content;
+      padding: 8px 10px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.05);
-      padding: 6px 10px;
-      border-radius: 999px;
+      color: var(--muted);
       font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
-    .plan h3{
-      margin: 0 0 6px;
-      font-size: 18px;
-      letter-spacing:-.2px;
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent);
+      box-shadow:0 0 0 4px rgba(125,211,252,.14);
     }
-    .plan p{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
+
+    .plan h3{ margin:0 0 6px; font-size: 18px; letter-spacing:-.2px; }
+    .plan p{ margin:0 0 12px; color: var(--muted); font-size: 13px; line-height:1.55; }
+
     .price{
       display:flex;
       align-items:baseline;
-      gap:8px;
-      margin: 6px 0 8px;
+      gap:10px;
+      margin: 6px 0 6px;
     }
-    .price .amt{
-      font-size: 38px;
-      letter-spacing:-.6px;
-      font-weight: 800;
+    .amt{
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: var(--text);
     }
-    .price .per{
+    .per{
+      font-size: 13px;
       color: var(--muted2);
-      font-size: 13px;
-    }
-    .strike{
-      color: rgba(255,255,255,.45);
-      text-decoration: line-through;
-      font-size: 13px;
-      margin-left: 6px;
     }
     .fine{
-      color: var(--muted2);
       font-size: 12px;
-      margin-bottom: 12px;
+      color: var(--muted2);
+      margin-bottom: 10px;
+      line-height: 1.45;
     }
+
     .features{
-      margin: 12px 0 16px;
-      padding:0;
       list-style:none;
+      padding:0;
+      margin: 10px 0 16px;
       display:flex;
       flex-direction:column;
       gap:10px;
-      color: var(--text);
+      color: var(--muted);
       font-size: 13px;
-      line-height:1.45;
+      line-height: 1.5;
     }
     .features li{
       display:flex;
@@ -341,30 +266,32 @@
       align-items:flex-start;
     }
     .check{
-      width:18px; height:18px; border-radius:6px;
-      background: rgba(134,239,172,.18);
-      border: 1px solid rgba(134,239,172,.30);
+      width:18px; height:18px;
+      border-radius: 8px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(125,211,252,.10);
       flex: 0 0 18px;
-      position:relative;
       margin-top: 1px;
+      position: relative;
     }
     .check:after{
       content:"";
       position:absolute;
       left:5px; top:3px;
       width:6px; height:10px;
-      border-right:2px solid rgba(255,255,255,.92);
-      border-bottom:2px solid rgba(255,255,255,.92);
+      border-right:2px solid rgba(255,255,255,.85);
+      border-bottom:2px solid rgba(255,255,255,.85);
       transform: rotate(40deg);
-      opacity:.95;
+      opacity:.9;
     }
 
-    .cta{
-      margin-top:auto;
+    .cta-row{
       display:flex;
-      flex-direction:column;
       gap:10px;
+      flex-wrap:wrap;
+      margin-top:auto;
     }
+
     .btn{
       display:inline-flex;
       justify-content:center;
@@ -378,6 +305,7 @@
       font-weight: 650;
       cursor:pointer;
       box-shadow: 0 14px 30px rgba(0,0,0,.22);
+      white-space: nowrap;
     }
     .btn:hover{
       background: rgba(255,255,255,.08);
@@ -390,50 +318,65 @@
     }
     .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
 
-    /* Add-ons / FAQ */
     .two-col{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-top: 18px;
+      margin-top: 16px;
+      align-items:start;
     }
-    .panel{
+    @media (max-width: 980px){
+      .two-col{ grid-template-columns: 1fr; }
+    }
+
+    .card{
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
       border-radius: var(--radius2);
       box-shadow: var(--shadow2);
       padding: 18px;
     }
-    .panel h3{margin:0 0 10px; font-size: 16px;}
-    .panel table{
-      width:100%;
-      border-collapse:collapse;
+    .card h2{ margin:0 0 10px; font-size: 22px; letter-spacing:-.2px; }
+    .card p{
+      margin:0 0 12px;
+      color: var(--muted);
       font-size: 13px;
-      color: var(--text);
+      line-height: 1.55;
     }
-    .panel th,.panel td{
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td{
       text-align:left;
-      padding:10px 8px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      vertical-align:top;
+      padding: 10px 8px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      vertical-align: top;
     }
-    .panel th{color: var(--muted); font-weight:650;}
-    .panel td small{color: var(--muted2); display:block; margin-top:4px; line-height:1.35;}
+    th{ color: var(--muted); font-weight: 800; }
+    td small{
+      display:block;
+      margin-top: 4px;
+      color: var(--muted2);
+      line-height: 1.4;
+    }
+
     details{
       border-top: 1px solid rgba(255,255,255,.10);
       padding: 12px 0;
     }
-    details:first-of-type{border-top:0; padding-top:0;}
+    details:first-of-type{ border-top: 0; padding-top: 0; }
     summary{
-      cursor:pointer;
-      font-weight:650;
+      cursor: pointer;
+      font-weight: 800;
       color: var(--text);
     }
     details p{
-      margin:8px 0 0;
+      margin: 8px 0 0;
       color: var(--muted);
       font-size: 13px;
-      line-height:1.55;
     }
 
     /* Footer */
@@ -453,19 +396,6 @@
       flex-wrap:wrap;
     }
     .foot a{color: var(--muted);}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr; }
-      .grid{grid-template-columns: 1fr;}
-      .two-col{grid-template-columns: 1fr;}
-      .hero h1{font-size: 34px;}
-    }
-    @media (max-width: 420px){
-      .brand img{width:48px;height:48px;}
-      .hero{padding-top: 40px;}
-      .hero h1{font-size: 30px;}
-    }
   </style>
 </head>
 
@@ -475,7 +405,6 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="index.html" aria-label="NimLogic Systems home">
-          <!-- Keep consistent with your site: Logo0.png -->
           <img src="Logo0.png" alt="NimLogic Systems logo" />
           <div class="name">
             <strong>NimLogic Systems</strong>
@@ -483,108 +412,55 @@
           </div>
         </a>
 
-        <div class="navlinks">
-          <!-- Update these hrefs to match your nimlogic.com structure -->
-          <a class="pill" href="index.html#services">Services</a>
-          <a class="pill" href="index.html#about">About</a>
-          <a class="pill" href="index.html#contact">Contact</a>
+        <div class="navlinks" aria-label="Primary navigation">
+          <a class="pill" href="services.html">Services</a>
+          <a class="pill" href="how-we-work.html">How We Work</a>
+          <a class="pill" href="security.html">Security</a>
+          <a class="pill" href="contact.html">Contact</a>
           <a class="pill primary" href="pricing.html" aria-current="page">Pricing</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- Header -->
   <header class="hero">
     <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <h1>Pricing that stays predictable.</h1>
-          <p>
-            NimLogic Systems provides managed WordPress hosting designed for small businesses that want a stable,
-            secure site without ongoing technical overhead. Plans include core automation—updates, backups, and monitoring—
-            with clear boundaries to keep the service low-touch and reliable.
-          </p>
+      <h1>Pricing</h1>
+      <p>
+        Plans are designed for low-maintenance business sites and predictable operations. For custom development,
+        unusual integrations, or specialized requirements, work is scoped separately.
+      </p>
 
-          <div class="controls" role="group" aria-label="Billing frequency">
-            <div class="toggle" aria-label="Monthly or annual billing">
-              <button id="btnMonthly" class="active" type="button">Monthly</button>
-              <button id="btnAnnual" type="button">Annual <span style="color:var(--good); font-weight:700;">(save 15%)</span></button>
-            </div>
-            <div class="note">Ecommerce is available as a premium add-on with strict guardrails.</div>
-          </div>
+      <div class="controls" role="group" aria-label="Billing frequency">
+        <div class="toggle" aria-label="Monthly or annual billing">
+          <button id="btnMonthly" class="active" type="button">Monthly</button>
+          <button id="btnAnnual" type="button">Annual (save 15%)</button>
         </div>
-
-        <aside class="hero-card">
-          <h3>What you get by default</h3>
-          <ul>
-            <li>Automated WordPress provisioning and SSL</li>
-            <li>Nightly backups with retained restore points</li>
-            <li>Security baseline and routine patching</li>
-            <li>Uptime monitoring and incident notifications</li>
-            <li>Clear scope to keep support low and service consistent</li>
-          </ul>
-          <div class="badge-row" aria-label="Service badges">
-            <span class="badge"><span class="dot"></span>Managed Updates</span>
-            <span class="badge"><span class="dot"></span>Backups</span>
-            <span class="badge"><span class="dot"></span>Monitoring</span>
-          </div>
-        </aside>
+        <div class="note">
+          Ecommerce is available as a premium add-on with guardrails (Stripe-only, strict plugin policy).
+        </div>
       </div>
-    </div>
-
-    <div class="backdrop" aria-hidden="true">
-      <!-- Simple “clouds + mountains” SVG to match your tranquil theme -->
-      <svg viewBox="0 0 1440 240" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="mtn" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="rgba(125,211,252,.22)"/>
-            <stop offset="1" stop-color="rgba(255,255,255,0)"/>
-          </linearGradient>
-          <linearGradient id="cloud" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0" stop-color="rgba(255,255,255,.10)"/>
-            <stop offset="1" stop-color="rgba(255,255,255,.03)"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Clouds -->
-        <path d="M120 70c30-28 78-20 92 14 26-16 60-7 68 20 25-6 48 12 48 36H62c-20 0-36-15-36-33 0-20 18-37 40-37 9 0 18 3 24 7z"
-              fill="url(#cloud)" opacity=".85"/>
-        <path d="M980 52c34-32 90-24 106 16 30-18 70-7 78 24 28-7 54 14 54 42H880c-24 0-44-18-44-40 0-25 23-46 52-46 12 0 23 3 32 8z"
-              fill="url(#cloud)" opacity=".70"/>
-
-        <!-- Mountains -->
-        <path d="M0 210L240 120l160 90 210-120 180 120 220-150 210 150 220-120 0 120H0z"
-              fill="url(#mtn)" opacity=".95"/>
-        <path d="M0 240L250 155l140 85 220-120 170 120 220-150 220 150 220-115 0 115H0z"
-              fill="rgba(255,255,255,.05)" opacity=".9"/>
-      </svg>
     </div>
   </header>
 
   <!-- Pricing -->
   <main class="section">
     <div class="wrap">
-      <h2>Managed WordPress Hosting</h2>
-      <p class="sub">
-        Plans are built for low-maintenance business sites. We avoid “unlimited everything” promises and instead deliver
-        consistent performance through standardized automation and guardrails. If you need custom development, integrations,
-        or complex workflows, we can scope that separately.
-      </p>
+      <div class="plans" aria-label="Pricing plans">
 
-      <div class="grid" aria-label="Pricing plans">
         <!-- Starter -->
         <section class="plan" aria-label="Starter plan">
-          <div class="tag">For basic brochure sites</div>
+          <div class="tag2"><span class="dot"></span>For basic brochure sites</div>
           <h3>Starter</h3>
-          <p>Reliable hosting with SSL and automated provisioning. Best for simple pages and minimal change.</p>
+          <p>Reliable hosting with SSL and automated provisioning. Best for simple sites with minimal change.</p>
 
           <div class="price">
             <div class="amt" data-monthly="15" data-annual="13">$15</div>
-            <div class="per">/ month</div>
-            <div class="strike" data-strike-monthly="" data-strike-annual="$15"></div>
+            <div class="per pertext">/ month</div>
           </div>
-          <div class="fine" data-fine-monthly="Billed monthly. Cancel anytime."
+          <div class="fine"
+               data-fine-monthly="Billed monthly. Cancel anytime."
                data-fine-annual="Billed annually. Equivalent to $13/mo (15% savings).">
             Billed monthly. Cancel anytime.
           </div>
@@ -597,24 +473,24 @@
             <li><span class="check"></span><span>Baseline security hardening</span></li>
           </ul>
 
-          <div class="cta">
-            <a class="btn" href="index.html#contact">Request Starter</a>
-            <a class="btn primary" href="index.html#contact">Talk to NimLogic</a>
+          <div class="cta-row">
+            <a class="btn primary" href="contact.html">Request Starter</a>
+            <a class="btn" href="how-we-work.html">How We Work</a>
           </div>
         </section>
 
-        <!-- Managed (Featured) -->
+        <!-- Managed -->
         <section class="plan featured" aria-label="Managed plan">
-          <div class="tag">Most popular</div>
+          <div class="tag2"><span class="dot"></span>Most popular</div>
           <h3>Managed</h3>
-          <p>Everything in Starter, plus automated updates with rollback options and priority care for routine issues.</p>
+          <p>Everything in Starter, plus automated updates with rollback options and priority care for routine incidents.</p>
 
           <div class="price">
             <div class="amt" data-monthly="35" data-annual="30">$35</div>
-            <div class="per">/ month</div>
-            <div class="strike" data-strike-monthly="" data-strike-annual="$35"></div>
+            <div class="per pertext">/ month</div>
           </div>
-          <div class="fine" data-fine-monthly="Billed monthly. Best value for low-touch operations."
+          <div class="fine"
+               data-fine-monthly="Billed monthly. Best value for low-touch operations."
                data-fine-annual="Billed annually. Equivalent to $30/mo (15% savings).">
             Billed monthly. Best value for low-touch operations.
           </div>
@@ -627,24 +503,24 @@
             <li><span class="check"></span><span>Priority response for hosting-related incidents</span></li>
           </ul>
 
-          <div class="cta">
-            <a class="btn primary" href="index.html#contact">Start Managed</a>
-            <a class="btn" href="#faq">View FAQ</a>
+          <div class="cta-row">
+            <a class="btn primary" href="contact.html">Start Managed</a>
+            <a class="btn" href="#faq">FAQ</a>
           </div>
         </section>
 
         <!-- Business -->
         <section class="plan" aria-label="Business plan">
-          <div class="tag">For higher-visibility sites</div>
+          <div class="tag2"><span class="dot"></span>For higher-visibility sites</div>
           <h3>Business</h3>
-          <p>For organizations that need stronger availability, longer retention, and change support within scope.</p>
+          <p>For organizations that need longer retention, stronger availability, and limited content edits within scope.</p>
 
           <div class="price">
             <div class="amt" data-monthly="55" data-annual="47">$55</div>
-            <div class="per">/ month</div>
-            <div class="strike" data-strike-monthly="" data-strike-annual="$55"></div>
+            <div class="per pertext">/ month</div>
           </div>
-          <div class="fine" data-fine-monthly="Billed monthly. Includes limited routine changes."
+          <div class="fine"
+               data-fine-monthly="Billed monthly. Includes limited routine changes."
                data-fine-annual="Billed annually. Equivalent to $47/mo (15% savings).">
             Billed monthly. Includes limited routine changes.
           </div>
@@ -652,22 +528,24 @@
           <ul class="features">
             <li><span class="check"></span><span>Everything in Managed</span></li>
             <li><span class="check"></span><span>Longer backups (90-day retention)</span></li>
-            <li><span class="check"></span><span>Performance baseline tuning (within standard stack)</span></li>
-            <li><span class="check"></span><span>Monthly health report (uptime, updates, backup status)</span></li>
+            <li><span class="check"></span><span>Performance baseline tuning (standard stack)</span></li>
+            <li><span class="check"></span><span>Monthly health report (uptime, updates, backups)</span></li>
             <li><span class="check"></span><span>Up to 30 minutes/month of minor site edits</span></li>
           </ul>
 
-          <div class="cta">
-            <a class="btn" href="index.html#contact">Request Business</a>
-            <a class="btn primary" href="index.html#contact">Schedule a Call</a>
+          <div class="cta-row">
+            <a class="btn primary" href="contact.html">Request Business</a>
+            <a class="btn" href="security.html">Security</a>
           </div>
         </section>
+
       </div>
 
-      <!-- Add-ons + FAQ -->
-      <div class="two-col">
-        <section class="panel" aria-label="Add-ons">
-          <h3>Add-ons</h3>
+      <div class="two-col" aria-label="Add-ons and FAQ">
+        <section class="card" aria-label="Add-ons">
+          <h2>Add-ons</h2>
+          <p>Common additions to the standard plans.</p>
+
           <table>
             <thead>
               <tr>
@@ -686,83 +564,92 @@
               <tr>
                 <td>
                   Email (Google Workspace / Microsoft 365)
-                  <small>We can set up and administer email; licensing is passed through at cost.</small>
+                  <small>Setup and administration available; licensing is passed through at cost.</small>
                 </td>
                 <td>Scoped</td>
               </tr>
               <tr>
                 <td>
                   Ecommerce (WooCommerce) — Premium
-                  <small>
-                    $95+/mo. Stripe-only, strict plugin policy, and standardized configuration to keep it safe and low-touch.
-                    Custom store builds are scoped separately.
-                  </small>
+                  <small>Stripe-only, strict plugin policy, standardized configuration to keep it safe and low-touch.</small>
                 </td>
                 <td>$95+/mo</td>
               </tr>
               <tr>
                 <td>
-                  Website updates/content work
+                  Website updates / content work
                   <small>For changes beyond plan allowance. Batch work is preferred to keep costs down.</small>
                 </td>
                 <td>$95/hr</td>
               </tr>
             </tbody>
           </table>
+
+          <div class="cta" style="margin-top:14px;">
+            <a class="btn primary" href="contact.html">Contact</a>
+            <a class="btn" href="services.html">Services</a>
+          </div>
         </section>
 
-        <section class="panel" id="faq" aria-label="FAQ">
-          <h3>FAQ</h3>
+        <section class="card" id="faq" aria-label="FAQ">
+          <h2>FAQ</h2>
 
           <details open>
             <summary>What’s included in “automated updates”?</summary>
             <p>
-              WordPress core, theme, and plugin updates are applied automatically within a controlled workflow. If an update
-              introduces instability, we revert using backups/restore points. To keep this reliable, we enforce a plugin policy
-              and avoid unsupported customization in the base hosting layer.
+              WordPress core, theme, and plugin updates are applied automatically within a controlled workflow.
+              If an update introduces instability, we revert using backups/restore points. To keep this reliable,
+              we enforce a plugin policy and avoid unsupported customization in the base hosting layer.
             </p>
           </details>
 
           <details>
             <summary>Do you support any plugin/theme?</summary>
             <p>
-              Not universally. We support a standard set that behaves predictably in an automated environment. Unsupported or
-              high-risk plugins may be declined, replaced, or moved to a custom scope to protect platform stability.
+              Not universally. We support a standard set that behaves predictably in an automated environment.
+              Unsupported or high-risk plugins may be declined, replaced, or moved to a custom scope to protect
+              platform stability.
             </p>
           </details>
 
           <details>
             <summary>Is ecommerce possible without a lot of overhead?</summary>
             <p>
-              Yes, if it is tightly scoped. We offer a premium ecommerce add-on with strict guardrails (Stripe-only, standard
-              WooCommerce setup, limited plugin surface area). This reduces security and support risk and makes it profitable.
+              Yes, if it is tightly scoped. We offer a premium ecommerce add-on with strict guardrails (Stripe-only,
+              standard WooCommerce setup, limited plugin surface area). This reduces security and support risk.
             </p>
           </details>
 
           <details>
             <summary>What happens if I want to leave?</summary>
             <p>
-              You own your content. We can provide a full site export and database dump. If you have a custom domain, you can
-              repoint DNS to another provider at any time.
+              You own your content. We can provide a site export and database dump. If you have a custom domain,
+              you can repoint DNS to another provider at any time.
             </p>
           </details>
+
+          <div class="cta" style="margin-top:14px;">
+            <a class="btn primary" href="contact.html">Contact</a>
+            <a class="btn" href="how-we-work.html">How We Work</a>
+          </div>
         </section>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="wrap">
       <div class="foot">
         <div>
           <strong style="color:rgba(255,255,255,.86)">NimLogic Systems</strong><br />
-          <span>Managed Hosting • Website Design • Cloud Storage • IT Consulting</span>
+          <span>Website Design • Managed Hosting • Cloud Storage • IT Consulting</span>
         </div>
         <div>
-          <a href="index.html#contact">Contact</a> ·
-          <a href="index.html#services">Services</a> ·
-          <a href="pricing.html" aria-current="page">Pricing</a>
+          <a href="services.html">Services</a> ·
+          <a href="how-we-work.html">How We Work</a> ·
+          <a href="security.html">Security</a> ·
+          <a href="contact.html">Contact</a> ·
+          <a href="pricing.html">Pricing</a>
           <div style="margin-top:8px;">
             <span>© <span id="year"></span> NimLogic Systems. All rights reserved.</span>
           </div>
@@ -772,18 +659,17 @@
   </footer>
 
   <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     // Pricing toggle (monthly vs annual)
     const btnMonthly = document.getElementById('btnMonthly');
     const btnAnnual  = document.getElementById('btnAnnual');
-
     const amounts = document.querySelectorAll('.amt');
-    const fine    = document.querySelectorAll('.fine');
-    const perText = document.querySelectorAll('.per');
-    const strikes = document.querySelectorAll('.strike');
+    const fineEls = document.querySelectorAll('.fine');
+    const perEls  = document.querySelectorAll('.pertext');
 
     function setMode(mode){
       const annual = mode === 'annual';
-
       btnMonthly.classList.toggle('active', !annual);
       btnAnnual.classList.toggle('active', annual);
 
@@ -792,24 +678,17 @@
         el.textContent = `$${val}`;
       });
 
-      fine.forEach(el => {
+      fineEls.forEach(el => {
         el.textContent = annual ? el.dataset.fineAnnual : el.dataset.fineMonthly;
       });
 
-      perText.forEach(el => {
+      perEls.forEach(el => {
         el.textContent = annual ? '/ month (annual billing)' : '/ month';
-      });
-
-      strikes.forEach(el => {
-        const strikeVal = annual ? el.dataset.strikeAnnual : el.dataset.strikeMonthly;
-        el.textContent = strikeVal ? `was ${strikeVal}` : '';
       });
     }
 
     btnMonthly.addEventListener('click', () => setMode('monthly'));
     btnAnnual.addEventListener('click', () => setMode('annual'));
-
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
