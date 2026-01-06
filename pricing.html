@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NimLogic Systems — Pricing</title>
-  <meta name="description" content="NimLogic Systems pricing for managed WordPress hosting, website design packages, cloud storage solutions, and IT consulting." />
+  <meta name="description" content="Simple, bundled pricing for websites and business technology support. One plan, one agreement, one monthly bill." />
 
   <style>
     :root{
@@ -131,7 +131,6 @@
       max-width: 92ch;
     }
 
-    /* Content */
     .section{
       padding: 12px 0 56px;
       position:relative;
@@ -309,7 +308,7 @@
 
     .two-col{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr .8fr;
       gap: 16px;
       margin-top: 16px;
       align-items:start;
@@ -368,6 +367,37 @@
       font-size: 13px;
     }
 
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 850;
+      text-decoration:none;
+      box-shadow: 0 10px 22px rgba(0,0,0,.18);
+    }
+    .cta:hover{
+      text-decoration:none;
+      background: rgba(255,255,255,.07);
+      border-color: rgba(125,211,252,.30);
+    }
+    .cta.primary{
+      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.20));
+      border-color: rgba(125,211,252,.35);
+    }
+
     /* Footer */
     footer{
       border-top: 1px solid rgba(255,255,255,.08);
@@ -397,7 +427,7 @@
           <img src="Logo0.png" alt="NimLogic Systems logo" />
           <div class="name">
             <strong>NimLogic Systems</strong>
-            <span>Managed Hosting • IT Consulting</span>
+            <span>Websites • Business Technology Support</span>
           </div>
         </a>
 
@@ -415,21 +445,26 @@
   <!-- Header -->
   <header class="hero">
     <div class="wrap">
-      <h1>Pricing</h1>
+      <h1>Simple Pricing</h1>
       <p>
-        Hosting is structured as predictable monthly plans. Website builds and cloud/storage work are scoped as packages.
-        IT consulting is available hourly as-needed.
+        One plan per client. We build your site, host it, and handle ongoing maintenance and support.
+        You get one partner and one predictable bill.
       </p>
 
       <div class="controls" role="group" aria-label="Billing frequency">
         <div class="toggle" aria-label="Monthly or annual billing">
           <button id="btnMonthly" class="active" type="button">Monthly</button>
-          <button id="btnAnnual" type="button">Annual (save 15%)</button>
+          <button id="btnAnnual" type="button">Annual (save 10%)</button>
         </div>
         <div class="note">
-          Platforms are standardized for long-term reliability. Hosting is optimized for predictable operations and margin-friendly delivery,
-          leveraging AWS credits when available.
+          Annual billing reduces cost and keeps administration simple. Website build/setup is one-time.
+          Ongoing service is billed monthly or annually.
         </div>
+      </div>
+
+      <div class="ctaRow" aria-label="Primary calls to action">
+        <a class="cta primary" href="contact.html">Get Started</a>
+        <a class="cta" href="#faq">Read FAQ</a>
       </div>
     </div>
   </header>
@@ -438,283 +473,197 @@
   <main class="section">
     <div class="wrap">
 
-      <!-- Hosting -->
+      <!-- Plans -->
       <div class="subhead">
-        <h2>Managed WordPress Hosting</h2>
-        <p>Isolation, backups, monitoring, and controlled updates. Plans below price per site (isolated install).</p>
+        <h2>Website & Technology Plans</h2>
+        <p>
+          Choose one plan. Each includes website management, hosting, backups, updates, and support.
+          The one-time setup fee covers building or rebuilding your website.
+        </p>
       </div>
 
-      <div class="plans" aria-label="Hosting plans">
+      <div class="plans" aria-label="Bundled plans">
 
         <!-- Starter -->
-        <section class="plan" aria-label="Starter hosting plan">
-          <div class="tag2"><span class="dot"></span>For basic brochure sites</div>
+        <section class="plan" aria-label="Starter plan">
+          <div class="tag2"><span class="dot"></span>For very small businesses</div>
           <h3>Starter</h3>
-          <p>Reliable hosting with SSL and automated provisioning. Best for simple sites with minimal change.</p>
+          <p>Get online quickly with a clean, credible website and ongoing care.</p>
 
           <div class="price">
-            <div class="amt" data-monthly="15" data-annual="13">$15</div>
-            <div class="per pertext">/ month</div>
+            <div class="amt plan-amt" data-monthly="99" data-annual="89">$99</div>
+            <div class="per plan-per">/ month</div>
           </div>
-          <div class="fine"
-               data-fine-monthly="Billed monthly. Cancel anytime."
-               data-fine-annual="Billed annually. Equivalent to $13/mo (15% savings).">
-            Billed monthly. Cancel anytime.
+
+          <div class="fine">
+            <strong>One-time setup:</strong> $750<br />
+            <span class="fine-text"
+              data-fine-monthly="Monthly service billed month-to-month."
+              data-fine-annual="Annual service billed yearly. Equivalent to $89/mo (10% savings).">
+              Monthly service billed month-to-month.
+            </span>
           </div>
 
           <ul class="features">
-            <li><span class="check"></span><span>1 WordPress site (isolated install)</span></li>
-            <li><span class="check"></span><span>SSL certificate + HTTPS enforcement</span></li>
-            <li><span class="check"></span><span>Automated daily backups (7-day retention)</span></li>
-            <li><span class="check"></span><span>Uptime monitoring and alerting</span></li>
-            <li><span class="check"></span><span>Baseline security hardening</span></li>
-          </ul>
-        </section>
-
-        <!-- Managed -->
-        <section class="plan featured" aria-label="Managed hosting plan">
-          <div class="tag2"><span class="dot"></span>Most popular</div>
-          <h3>Managed</h3>
-          <p>Everything in Starter, plus automated updates with rollback options and priority care for routine incidents.</p>
-
-          <div class="price">
-            <div class="amt" data-monthly="35" data-annual="30">$35</div>
-            <div class="per pertext">/ month</div>
-          </div>
-          <div class="fine"
-               data-fine-monthly="Billed monthly. Best value for low-touch operations."
-               data-fine-annual="Billed annually. Equivalent to $30/mo (15% savings).">
-            Billed monthly. Best value for low-touch operations.
-          </div>
-
-          <ul class="features">
-            <li><span class="check"></span><span>Everything in Starter</span></li>
-            <li><span class="check"></span><span>Automated WordPress core/plugin updates</span></li>
-            <li><span class="check"></span><span>Staged update workflow to reduce breakage</span></li>
-            <li><span class="check"></span><span>Enhanced backups (30-day retention)</span></li>
-            <li><span class="check"></span><span>Priority response for hosting-related incidents</span></li>
+            <li><span class="check"></span><span>Website build/rebuild (up to 3 pages)</span></li>
+            <li><span class="check"></span><span>Managed hosting + SSL + uptime monitoring</span></li>
+            <li><span class="check"></span><span>Daily backups + basic restore support</span></li>
+            <li><span class="check"></span><span>Updates and security hardening (standard policy)</span></li>
+            <li><span class="check"></span><span>Email support for routine requests</span></li>
           </ul>
         </section>
 
         <!-- Business -->
-        <section class="plan" aria-label="Business hosting plan">
-          <div class="tag2"><span class="dot"></span>For higher-visibility sites</div>
-          <h3>Business</h3>
-          <p>Longer retention and limited content edits. Built for sites that change and need a tighter support loop.</p>
-
-          <div class="price">
-            <div class="amt" data-monthly="55" data-annual="47">$55</div>
-            <div class="per pertext">/ month</div>
-          </div>
-          <div class="fine"
-               data-fine-monthly="Billed monthly. Includes limited routine changes."
-               data-fine-annual="Billed annually. Equivalent to $47/mo (15% savings).">
-            Billed monthly. Includes limited routine changes.
-          </div>
-
-          <ul class="features">
-            <li><span class="check"></span><span>Everything in Managed</span></li>
-            <li><span class="check"></span><span>Longer backups (90-day retention)</span></li>
-            <li><span class="check"></span><span>Performance baseline tuning (standard stack)</span></li>
-            <li><span class="check"></span><span>Monthly health report (uptime, updates, backups)</span></li>
-            <li><span class="check"></span><span>Up to 30 minutes/month of minor content edits</span></li>
-          </ul>
-        </section>
-
-      </div>
-
-      <!-- Design packages -->
-      <div class="subhead" style="margin-top:28px;">
-        <h2>Website Design Packages</h2>
-        <p>Client provides all copy and images. Packages include build, responsive layout, and deployment to hosting.</p>
-      </div>
-
-      <div class="plans" aria-label="Website design packages">
-
-        <section class="plan" aria-label="Launch design package">
-          <div class="tag2"><span class="dot"></span>Fast professional presence</div>
-          <h3>Launch</h3>
-          <p>Ideal for new businesses that need a clean, credible site quickly.</p>
-
-          <div class="price">
-            <div class="amt">$750</div>
-            <div class="per">one-time</div>
-          </div>
-          <div class="fine">Up to 3 pages. Client-provided copy/images.</div>
-
-          <ul class="features">
-            <li><span class="check"></span><span>Up to 3 pages (Home, Services, Contact)</span></li>
-            <li><span class="check"></span><span>Mobile-first, accessible layout</span></li>
-            <li><span class="check"></span><span>Basic SEO setup (titles, meta, sitemap)</span></li>
-            <li><span class="check"></span><span>Contact email link or simple form</span></li>
-            <li><span class="check"></span><span>Deployment + handoff</span></li>
-          </ul>
-        </section>
-
-        <section class="plan featured" aria-label="Standard design package">
+        <section class="plan featured" aria-label="Business plan">
           <div class="tag2"><span class="dot"></span>Most common</div>
-          <h3>Standard</h3>
-          <p>For organizations that need fuller structure and stronger credibility.</p>
+          <h3>Business</h3>
+          <p>A fuller site plus a tighter support loop for ongoing changes.</p>
 
           <div class="price">
-            <div class="amt">$1,500</div>
-            <div class="per">one-time</div>
+            <div class="amt plan-amt" data-monthly="199" data-annual="179">$199</div>
+            <div class="per plan-per">/ month</div>
           </div>
-          <div class="fine">Up to 6 pages. Client-provided copy/images.</div>
+
+          <div class="fine">
+            <strong>One-time setup:</strong> $1,500<br />
+            <span class="fine-text"
+              data-fine-monthly="Monthly service billed month-to-month."
+              data-fine-annual="Annual service billed yearly. Equivalent to $179/mo (10% savings).">
+              Monthly service billed month-to-month.
+            </span>
+          </div>
 
           <ul class="features">
-            <li><span class="check"></span><span>Up to 6 pages (includes About + optional FAQ)</span></li>
-            <li><span class="check"></span><span>Reusable layout components for consistency</span></li>
-            <li><span class="check"></span><span>Performance baseline tuning</span></li>
-            <li><span class="check"></span><span>Analytics hookup (if provided)</span></li>
-            <li><span class="check"></span><span>Structured handoff + update guidance</span></li>
+            <li><span class="check"></span><span>Website build/rebuild (up to 7 pages)</span></li>
+            <li><span class="check"></span><span>Managed hosting + monitoring + performance baseline</span></li>
+            <li><span class="check"></span><span>Backups + updates + security monitoring</span></li>
+            <li><span class="check"></span><span>Reasonable content updates included (batch preferred)</span></li>
+            <li><span class="check"></span><span>Monthly site health check (uptime, updates, backups)</span></li>
           </ul>
         </section>
 
-        <section class="plan" aria-label="Growth design package">
-          <div class="tag2"><span class="dot"></span>More content, more structure</div>
+        <!-- Growth -->
+        <section class="plan" aria-label="Growth plan">
+          <div class="tag2"><span class="dot"></span>For growing businesses</div>
           <h3>Growth</h3>
-          <p>For teams that need more pages, refined structure, and iterative polish.</p>
+          <p>More pages, integrations, and priority support for more complex needs.</p>
 
           <div class="price">
-            <div class="amt">$2,500</div>
-            <div class="per">one-time</div>
+            <div class="amt plan-amt" data-monthly="299" data-annual="269">$299</div>
+            <div class="per plan-per">/ month</div>
           </div>
-          <div class="fine">Up to 10 pages. Client-provided copy/images.</div>
+
+          <div class="fine">
+            <strong>One-time setup:</strong> $2,500<br />
+            <span class="fine-text"
+              data-fine-monthly="Monthly service billed month-to-month."
+              data-fine-annual="Annual service billed yearly. Equivalent to $269/mo (10% savings).">
+              Monthly service billed month-to-month.
+            </span>
+          </div>
 
           <ul class="features">
-            <li><span class="check"></span><span>Up to 10 pages + refined navigation</span></li>
-            <li><span class="check"></span><span>Conversion-focused structure (clear CTAs, layout)</span></li>
-            <li><span class="check"></span><span>Content organization and section planning</span></li>
-            <li><span class="check"></span><span>Light revision cycle included</span></li>
-            <li><span class="check"></span><span>Deployment + post-launch verification</span></li>
+            <li><span class="check"></span><span>Website build/rebuild (up to 12 pages or custom layouts)</span></li>
+            <li><span class="check"></span><span>Priority support + faster response targets</span></li>
+            <li><span class="check"></span><span>Integrations (forms, analytics, basic CRM routing)</span></li>
+            <li><span class="check"></span><span>Advanced monitoring + quarterly review</span></li>
+            <li><span class="check"></span><span>Operational guidance for business tools (within scope)</span></li>
           </ul>
         </section>
 
       </div>
 
-      <!-- Cloud storage packages -->
+      <!-- What's included -->
       <div class="subhead" style="margin-top:28px;">
-        <h2>Cloud Storage Packages</h2>
+        <h2>What “Done-For-You” Means</h2>
         <p>
-          Baselines for shared storage, permissions, and recovery planning. Licensing (Google/Microsoft) is passed through at cost.
-          Packages focus on configuration and operational clarity.
+          These are included across all plans so you do not need to manage platforms, plugins, or hosting details.
         </p>
       </div>
 
-      <div class="plans" aria-label="Cloud storage packages">
+      <div class="two-col" aria-label="Included details and optional add-ons">
 
-        <section class="plan" aria-label="Storage baseline package">
-          <div class="tag2"><span class="dot"></span>Foundational setup</div>
-          <h3>Baseline</h3>
-          <p>Clean shared structure and permissions for a small team.</p>
-
-          <div class="price">
-            <div class="amt">$600</div>
-            <div class="per">one-time</div>
-          </div>
-          <div class="fine">Up to 10 users. Standard folder structure + access model.</div>
-
-          <ul class="features">
-            <li><span class="check"></span><span>Shared drive / team site structure</span></li>
-            <li><span class="check"></span><span>Role-based permissions (admin/member/viewer)</span></li>
-            <li><span class="check"></span><span>Sharing rules and basic governance</span></li>
-            <li><span class="check"></span><span>Recovery posture (recycle bin/retention settings)</span></li>
-            <li><span class="check"></span><span>Simple operational documentation</span></li>
-          </ul>
-        </section>
-
-        <section class="plan featured" aria-label="Storage standard package">
-          <div class="tag2"><span class="dot"></span>Most popular</div>
-          <h3>Standard</h3>
-          <p>Stronger controls, onboarding/offboarding basics, and a clearer operational model.</p>
-
-          <div class="price">
-            <div class="amt">$1,200</div>
-            <div class="per">one-time</div>
-          </div>
-          <div class="fine">Up to 25 users. Includes onboarding/offboarding checklist.</div>
-
-          <ul class="features">
-            <li><span class="check"></span><span>Everything in Baseline</span></li>
-            <li><span class="check"></span><span>Department-based structure and permissions</span></li>
-            <li><span class="check"></span><span>Onboarding/offboarding checklist and workflow</span></li>
-            <li><span class="check"></span><span>External sharing constraints (policy-based)</span></li>
-            <li><span class="check"></span><span>Recovery planning notes (who does what)</span></li>
-          </ul>
-        </section>
-
-        <section class="plan" aria-label="Storage controls package">
-          <div class="tag2"><span class="dot"></span>More complexity</div>
-          <h3>Controls+</h3>
-          <p>For organizations that need tighter governance and cleaner operational boundaries.</p>
-
-          <div class="price">
-            <div class="amt">$2,000</div>
-            <div class="per">one-time</div>
-          </div>
-          <div class="fine">Up to 50 users. Scoped governance + audit readiness basics.</div>
-
-          <ul class="features">
-            <li><span class="check"></span><span>Everything in Standard</span></li>
-            <li><span class="check"></span><span>Granular sharing controls and exceptions process</span></li>
-            <li><span class="check"></span><span>Data organization and retention guidance</span></li>
-            <li><span class="check"></span><span>Access review cadence and checklist</span></li>
-            <li><span class="check"></span><span>Light “audit ready” documentation set</span></li>
-          </ul>
-        </section>
-
-      </div>
-
-      <!-- Consulting + Add-ons + FAQ -->
-      <div class="two-col" aria-label="Consulting, add-ons, and FAQ">
-
-        <section class="card" aria-label="Consulting and add-ons">
-          <h2>IT Consulting and Add-ons</h2>
+        <section class="card" aria-label="Included across plans">
+          <h2>Included (All Plans)</h2>
           <p>
-            Consulting is available hourly as-needed. Add-ons below apply to hosting and project work.
+            We keep the site online, secure, backed up, and maintained. You focus on your business.
           </p>
 
           <table>
             <thead>
               <tr>
-                <th>Service</th>
+                <th>Included</th>
+                <th>What it means</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hosting + SSL</td>
+                <td><small>Managed hosting with HTTPS, routine hardening, and standard configuration.</small></td>
+              </tr>
+              <tr>
+                <td>Backups</td>
+                <td><small>Automated backups with restoration support for hosting-related issues.</small></td>
+              </tr>
+              <tr>
+                <td>Updates</td>
+                <td><small>WordPress core/plugin updates under a standardized policy to reduce breakage.</small></td>
+              </tr>
+              <tr>
+                <td>Monitoring</td>
+                <td><small>Uptime checks and alerting for incidents tied to hosting or platform health.</small></td>
+              </tr>
+              <tr>
+                <td>Support</td>
+                <td><small>Email-based support for routine requests; batching changes is encouraged.</small></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="fine" style="margin-top:10px;">
+            <strong>Note:</strong> Domain registration and third-party licenses (email, premium plugins) are client-owned and billed separately.
+          </div>
+        </section>
+
+        <section class="card" aria-label="Optional add-ons">
+          <h2>Optional Add-Ons</h2>
+          <p>
+            Keep the plan simple. Add-ons are only used when needed.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Add-on</th>
                 <th>Price</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  IT consulting (as-needed)
-                  <small>Systems, identity, operational guidance, validation, and troubleshooting within scope.</small>
+                  E-commerce support
+                  <small>WooCommerce with strict plugin policy. Stripe-only recommended for simplicity.</small>
                 </td>
-                <td>$125/hr</td>
+                <td>+$95/mo</td>
               </tr>
               <tr>
                 <td>
-                  Additional hosted site
-                  <small>Second site under the same plan level. Isolated install with its own backups and updates.</small>
+                  Extra website
+                  <small>Second site under the same client agreement.</small>
                 </td>
-                <td>+$15/mo</td>
+                <td>+$50/mo</td>
               </tr>
               <tr>
                 <td>
-                  Email setup and administration
-                  <small>Google Workspace or Microsoft 365 setup; licensing is passed through at cost.</small>
+                  Email / domain setup
+                  <small>Initial setup for DNS, email routing, and mailbox configuration.</small>
                 </td>
-                <td>Scoped</td>
+                <td>$150 one-time</td>
               </tr>
               <tr>
                 <td>
-                  Ecommerce (WooCommerce) — Premium
-                  <small>Stripe-only, strict plugin policy, standardized configuration to reduce risk and overhead.</small>
-                </td>
-                <td>$95+/mo</td>
-              </tr>
-              <tr>
-                <td>
-                  Website updates / content work
-                  <small>For changes beyond plan allowances. Batch work is preferred.</small>
+                  Out-of-scope changes
+                  <small>Custom features, heavy revisions, emergency work, or non-standard tooling.</small>
                 </td>
                 <td>$95/hr</td>
               </tr>
@@ -722,49 +671,60 @@
           </table>
         </section>
 
-        <section class="card" id="faq" aria-label="FAQ">
-          <h2>FAQ</h2>
-
-          <details open>
-            <summary>Do design packages include copywriting?</summary>
-            <p>
-              No. Clients provide all copy and images. We can advise on structure and placement, but writing is not included.
-            </p>
-          </details>
-
-          <details>
-            <summary>Which cloud platform do you support?</summary>
-            <p>
-              We can implement either Google Workspace or Microsoft 365. Licensing is purchased by the client and passed through at cost.
-              The packages cover configuration, permissions, and operational practices.
-            </p>
-          </details>
-
-          <details>
-            <summary>Can I combine design and hosting?</summary>
-            <p>
-              Yes. Many clients start with a design package and then transition to a hosting plan for ongoing stability and maintenance.
-            </p>
-          </details>
-
-          <details>
-            <summary>Is ecommerce possible without a lot of overhead?</summary>
-            <p>
-              It can be, if it is tightly scoped. The premium ecommerce add-on uses strict guardrails (Stripe-only, standardized setup,
-              limited plugin surface area) to keep it safer and lower-touch.
-            </p>
-          </details>
-
-          <details>
-            <summary>What happens if I want to leave?</summary>
-            <p>
-              You own your content. We can provide a site export and database dump. If you have a custom domain,
-              you can repoint DNS to another provider at any time.
-            </p>
-          </details>
-        </section>
-
       </div>
+
+      <!-- FAQ -->
+      <div class="subhead" style="margin-top:28px;">
+        <h2 id="faq">FAQ</h2>
+        <p>Simple answers to the questions small businesses usually ask before they commit.</p>
+      </div>
+
+      <section class="card" aria-label="FAQ section">
+        <details open>
+          <summary>Do I own my website?</summary>
+          <p>
+            Yes. You own your domain, content, and brand assets. If you leave, we can provide your site files and a database export.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is there a contract term?</summary>
+          <p>
+            You can choose month-to-month or annual billing. Annual includes a 10% discount and reduces administrative overhead.
+          </p>
+        </details>
+
+        <details>
+          <summary>What do you need from me to start?</summary>
+          <p>
+            A short intake: business name, services, service area, contact details, and any existing branding (logo/colors).
+            If you already have copy/images, we can move faster.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I upgrade later?</summary>
+          <p>
+            Yes. Most clients start with Business. We can upgrade anytime as your site grows or your needs change.
+          </p>
+        </details>
+
+        <details>
+          <summary>What is not included?</summary>
+          <p>
+            Large custom development, complex integrations, and unmanaged third-party tools are handled as out-of-scope work.
+            Domain registration and external subscriptions (email, premium plugins) are billed separately.
+          </p>
+        </details>
+
+        <details>
+          <summary>How is this different from Squarespace?</summary>
+          <p>
+            Squarespace gives you a tool. We take responsibility for the website and the operational details so you don’t have to manage them.
+          </p>
+        </details>
+      </section>
+
     </div>
   </main>
 
@@ -773,7 +733,7 @@
       <div class="foot">
         <div>
           <strong style="color:rgba(255,255,255,.86)">NimLogic Systems</strong><br />
-          <span>Website Design • Managed Hosting • Cloud Storage • IT Consulting</span>
+          <span>Websites • Business Technology Support</span>
         </div>
         <div>
           <a href="services.html">Services</a> ·
@@ -792,28 +752,28 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Pricing toggle (monthly vs annual) - hosting only
     const btnMonthly = document.getElementById('btnMonthly');
     const btnAnnual  = document.getElementById('btnAnnual');
-    const amounts = document.querySelectorAll('.amt[data-monthly]');
-    const fineEls = document.querySelectorAll('.fine[data-fine-monthly]');
-    const perEls  = document.querySelectorAll('.pertext');
+
+    const planAmounts = document.querySelectorAll('.plan-amt[data-monthly]');
+    const fineTexts   = document.querySelectorAll('.fine-text[data-fine-monthly]');
+    const perTexts    = document.querySelectorAll('.plan-per');
 
     function setMode(mode){
       const annual = mode === 'annual';
       btnMonthly.classList.toggle('active', !annual);
       btnAnnual.classList.toggle('active', annual);
 
-      amounts.forEach(el => {
+      planAmounts.forEach(el => {
         const val = annual ? el.dataset.annual : el.dataset.monthly;
         el.textContent = `$${val}`;
       });
 
-      fineEls.forEach(el => {
+      fineTexts.forEach(el => {
         el.textContent = annual ? el.dataset.fineAnnual : el.dataset.fineMonthly;
       });
 
-      perEls.forEach(el => {
+      perTexts.forEach(el => {
         el.textContent = annual ? '/ month (annual billing)' : '/ month';
       });
     }
