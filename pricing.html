@@ -743,4 +743,83 @@
           <details>
             <summary>Can I combine design and hosting?</summary>
             <p>
-              Yes. Many clients start with a design package and then transition to a hosting plan for ongoing stabilit
+              Yes. Many clients start with a design package and then transition to a hosting plan for ongoing stability and maintenance.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is ecommerce possible without a lot of overhead?</summary>
+            <p>
+              It can be, if it is tightly scoped. The premium ecommerce add-on uses strict guardrails (Stripe-only, standardized setup,
+              limited plugin surface area) to keep it safer and lower-touch.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens if I want to leave?</summary>
+            <p>
+              You own your content. We can provide a site export and database dump. If you have a custom domain,
+              you can repoint DNS to another provider at any time.
+            </p>
+          </details>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <strong style="color:rgba(255,255,255,.86)">NimLogic Systems</strong><br />
+          <span>Website Design • Managed Hosting • Cloud Storage • IT Consulting</span>
+        </div>
+        <div>
+          <a href="services.html">Services</a> ·
+          <a href="how-we-work.html">How We Work</a> ·
+          <a href="security.html">Security</a> ·
+          <a href="contact.html">Contact</a> ·
+          <a href="pricing.html">Pricing</a>
+          <div style="margin-top:8px;">
+            <span>© <span id="year"></span> NimLogic Systems. All rights reserved.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Pricing toggle (monthly vs annual) - hosting only
+    const btnMonthly = document.getElementById('btnMonthly');
+    const btnAnnual  = document.getElementById('btnAnnual');
+    const amounts = document.querySelectorAll('.amt[data-monthly]');
+    const fineEls = document.querySelectorAll('.fine[data-fine-monthly]');
+    const perEls  = document.querySelectorAll('.pertext');
+
+    function setMode(mode){
+      const annual = mode === 'annual';
+      btnMonthly.classList.toggle('active', !annual);
+      btnAnnual.classList.toggle('active', annual);
+
+      amounts.forEach(el => {
+        const val = annual ? el.dataset.annual : el.dataset.monthly;
+        el.textContent = `$${val}`;
+      });
+
+      fineEls.forEach(el => {
+        el.textContent = annual ? el.dataset.fineAnnual : el.dataset.fineMonthly;
+      });
+
+      perEls.forEach(el => {
+        el.textContent = annual ? '/ month (annual billing)' : '/ month';
+      });
+    }
+
+    btnMonthly.addEventListener('click', () => setMode('monthly'));
+    btnAnnual.addEventListener('click', () => setMode('annual'));
+  </script>
+</body>
+</html>
