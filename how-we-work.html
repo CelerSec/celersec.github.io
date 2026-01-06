@@ -225,39 +225,6 @@
       margin: 12px 0 14px;
     }
 
-    /* CTA */
-    .cta{
-      margin-top: 14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;
-      justify-content:center;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 650;
-      cursor:pointer;
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
-      white-space: nowrap;
-    }
-    .btn:hover{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(125,211,252,.30);
-      text-decoration:none;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.18));
-      border-color: rgba(125,211,252,.35);
-    }
-    .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
-
     /* Footer */
     footer{
       border-top: 1px solid rgba(255,255,255,.08);
@@ -302,7 +269,7 @@
     </div>
   </div>
 
-  <!-- Page header -->
+  <!-- Page header (no extra buttons) -->
   <header class="hero">
     <div class="wrap">
       <h1>How We Work</h1>
@@ -310,11 +277,6 @@
         NimLogic Systems runs a standardized delivery model to keep work predictable: clear scope, documented changes,
         and stable configurations. This reduces surprises and keeps long-term support manageable.
       </p>
-
-      <div class="cta" style="margin-top:16px;">
-        <a class="btn primary" href="pricing.html">View Pricing</a>
-        <a class="btn" href="contact.html">Contact</a>
-      </div>
     </div>
   </header>
 
@@ -422,14 +384,9 @@
           <div class="divider"></div>
 
           <h3>Next step</h3>
-          <p>
-            If you want the fastest path forward, review Pricing first. If your needs are unusual, contact us with a brief description and timeline.
+          <p style="margin-bottom:0;">
+            Review Pricing to select a plan. If your needs are unusual, use the Contact page with a brief description and timeline.
           </p>
-
-          <div class="cta">
-            <a class="btn primary" href="pricing.html">View Pricing</a>
-            <a class="btn" href="contact.html">Contact</a>
-          </div>
         </aside>
 
       </div>
