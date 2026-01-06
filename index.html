@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NimLogic Systems</title>
-  <meta name="description" content="NimLogic Systems provides website design, managed hosting, cloud storage solutions, and practical IT consulting for small and mid-sized organizations." />
+  <meta name="description" content="NimLogic Systems builds and manages websites for small businesses: design, hosting, maintenance, and support." />
 
   <style>
     :root{
@@ -135,7 +135,7 @@
       color: var(--muted);
       font-size: 16px;
       line-height: 1.55;
-      max-width: 70ch;
+      max-width: 74ch;
     }
 
     .hero-card{
@@ -206,7 +206,7 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.55;
-      max-width: 86ch;
+      max-width: 92ch;
     }
 
     .grid{
@@ -243,6 +243,38 @@
       line-height: 1.55;
     }
 
+    .cta{
+      margin-top: 16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 650;
+      cursor:pointer;
+      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+      white-space: nowrap;
+    }
+    .btn:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(125,211,252,.30);
+      text-decoration:none;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(96,165,250,.18));
+      border-color: rgba(125,211,252,.35);
+    }
+    .btn:focus{outline:none; box-shadow: var(--ring), 0 14px 30px rgba(0,0,0,.22);}
+
     /* Footer */
     footer{
       border-top: 1px solid rgba(255,255,255,.08);
@@ -272,15 +304,13 @@
           <img src="Logo0.png" alt="NimLogic Systems logo" />
           <div class="name">
             <strong>NimLogic Systems</strong>
-            <span>Managed Hosting • IT Consulting</span>
+            <span>Websites • Business Technology Support</span>
           </div>
         </a>
 
-        <!-- Pricing is NOT highlighted on index -->
         <div class="navlinks" aria-label="Primary navigation">
           <a class="pill" href="services.html">Services</a>
           <a class="pill" href="how-we-work.html">How We Work</a>
-          <a class="pill" href="security.html">Security</a>
           <a class="pill" href="contact.html">Contact</a>
           <a class="pill" href="pricing.html">Pricing</a>
         </div>
@@ -293,26 +323,31 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <h1>Reliable web and IT services, delivered with clear scope.</h1>
+          <h1>Websites that stay online and stay maintained.</h1>
           <p>
-            NimLogic Systems provides website design, managed WordPress hosting, cloud storage solutions, and practical IT consulting.
-            The focus is straightforward: stable systems, documented changes, and predictable support.
+            NimLogic Systems builds small-business websites and provides ongoing hosting, maintenance, and support.
+            The model is simple: clear scope, predictable operations, and one point of contact.
           </p>
+
+          <div class="cta" aria-label="Primary actions">
+            <a class="btn primary" href="pricing.html">View Pricing</a>
+            <a class="btn" href="contact.html">Contact</a>
+          </div>
         </div>
 
         <aside class="hero-card" aria-label="Quick summary">
           <h3>What we deliver</h3>
           <ul>
-            <li>Website design and rebuilds</li>
+            <li>Website builds and rebuilds</li>
             <li>Managed hosting with backups and monitoring</li>
-            <li>Cloud storage baselines and recovery planning</li>
-            <li>Practical IT consulting and operational guidance</li>
+            <li>Routine updates and support</li>
+            <li>Optional add-ons (e-commerce, email/domain setup)</li>
           </ul>
 
           <div class="badge-row" aria-label="Highlights">
-            <span class="badge"><span class="dot"></span>Standardized stack</span>
-            <span class="badge"><span class="dot"></span>Documented changes</span>
-            <span class="badge"><span class="dot"></span>Predictable support</span>
+            <span class="badge"><span class="dot"></span>Predictable scope</span>
+            <span class="badge"><span class="dot"></span>Stable operations</span>
+            <span class="badge"><span class="dot"></span>Single vendor</span>
           </div>
         </aside>
       </div>
@@ -347,31 +382,31 @@
   <!-- Minimal index content -->
   <main class="section">
     <div class="wrap">
-      <h2>Services, at a glance</h2>
+      <h2>How it works</h2>
       <p class="sub">
-        NimLogic Systems serves organizations that want a professional web presence and stable IT foundations without ongoing complexity.
-        Details, scope, and delivery process are documented on the individual pages.
+        Most clients start with a one-time build (or rebuild), then move into a monthly plan for hosting and ongoing care.
+        Details on scope and what’s included are documented on Pricing and How We Work.
       </p>
 
-      <div class="grid" aria-label="Service overview">
+      <div class="grid" aria-label="Overview cards">
         <section class="card">
-          <h3>Website Design</h3>
-          <p>Modern sites built for clarity and performance. Mobile-first, accessible, and structured for easy future updates.</p>
+          <h3>Build</h3>
+          <p>Launch a clean, professional site with simple structure and clear calls-to-action.</p>
         </section>
 
         <section class="card">
-          <h3>Managed WordPress Hosting</h3>
-          <p>Hosting with SSL, backups, and monitoring. Standardized configuration to keep support predictable.</p>
+          <h3>Host</h3>
+          <p>Managed hosting with HTTPS, backups, monitoring, and a predictable support model.</p>
         </section>
 
         <section class="card">
-          <h3>Cloud Storage Solutions</h3>
-          <p>Practical file storage baselines: access control, sharing practices, retention, and recovery planning.</p>
+          <h3>Maintain</h3>
+          <p>Routine updates and ongoing improvements based on plan level and agreed scope.</p>
         </section>
 
         <section class="card">
-          <h3>IT Consulting</h3>
-          <p>Guidance on systems and operations that reduces recurring issues and keeps changes documented.</p>
+          <h3>Support</h3>
+          <p>One point of contact for incidents, small changes, and scoped work when complexity increases.</p>
         </section>
       </div>
     </div>
@@ -382,12 +417,11 @@
       <div class="foot">
         <div>
           <strong style="color:rgba(255,255,255,.86)">NimLogic Systems</strong><br />
-          <span>Website Design • Managed Hosting • Cloud Storage • IT Consulting</span>
+          <span>Websites • Business Technology Support</span>
         </div>
         <div>
           <a href="services.html">Services</a> ·
           <a href="how-we-work.html">How We Work</a> ·
-          <a href="security.html">Security</a> ·
           <a href="contact.html">Contact</a> ·
           <a href="pricing.html">Pricing</a>
           <div style="margin-top:8px;">
