@@ -252,6 +252,7 @@
       align-items:baseline;
       gap:10px;
       margin: 6px 0 6px;
+      flex-wrap:wrap;
     }
     .amt{
       font-size: 40px;
@@ -454,7 +455,10 @@
           <p>Get online quickly with a clean, credible website and ongoing care.</p>
 
           <div class="price">
-            <div class="amt plan-amt" data-monthly="99" data-annual="89">$99</div>
+            <div class="amt plan-amt"
+                 data-monthly="99"
+                 data-annual="1079"
+                 data-annual-equivalent="89">$99</div>
             <div class="per plan-per">/ month</div>
           </div>
 
@@ -462,7 +466,7 @@
             <strong>One-time setup:</strong> $750<br />
             <span class="fine-text"
               data-fine-monthly="Monthly service billed month-to-month."
-              data-fine-annual="Annual service billed yearly. Equivalent to $89/mo (10% savings).">
+              data-fine-annual="Annual service billed yearly: $1,079. Equivalent to $89/mo (10% savings).">
               Monthly service billed month-to-month.
             </span>
           </div>
@@ -483,7 +487,10 @@
           <p>A fuller site plus a tighter support loop for ongoing changes.</p>
 
           <div class="price">
-            <div class="amt plan-amt" data-monthly="199" data-annual="179">$199</div>
+            <div class="amt plan-amt"
+                 data-monthly="199"
+                 data-annual="2149"
+                 data-annual-equivalent="179">$199</div>
             <div class="per plan-per">/ month</div>
           </div>
 
@@ -491,7 +498,7 @@
             <strong>One-time setup:</strong> $1,500<br />
             <span class="fine-text"
               data-fine-monthly="Monthly service billed month-to-month."
-              data-fine-annual="Annual service billed yearly. Equivalent to $179/mo (10% savings).">
+              data-fine-annual="Annual service billed yearly: $2,149. Equivalent to $179/mo (10% savings).">
               Monthly service billed month-to-month.
             </span>
           </div>
@@ -512,7 +519,10 @@
           <p>More pages, integrations, and priority support for more complex needs.</p>
 
           <div class="price">
-            <div class="amt plan-amt" data-monthly="299" data-annual="269">$299</div>
+            <div class="amt plan-amt"
+                 data-monthly="299"
+                 data-annual="3229"
+                 data-annual-equivalent="269">$299</div>
             <div class="per plan-per">/ month</div>
           </div>
 
@@ -520,7 +530,7 @@
             <strong>One-time setup:</strong> $2,500<br />
             <span class="fine-text"
               data-fine-monthly="Monthly service billed month-to-month."
-              data-fine-annual="Annual service billed yearly. Equivalent to $269/mo (10% savings).">
+              data-fine-annual="Annual service billed yearly: $3,229. Equivalent to $269/mo (10% savings).">
               Monthly service billed month-to-month.
             </span>
           </div>
@@ -714,14 +724,25 @@
     const fineTexts   = document.querySelectorAll('.fine-text[data-fine-monthly]');
     const perTexts    = document.querySelectorAll('.plan-per');
 
+    function formatUSD(n){
+      const num = Number(n);
+      if (!Number.isFinite(num)) return `$${n}`;
+      return num.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    }
+
     function setMode(mode){
       const annual = mode === 'annual';
       btnMonthly.classList.toggle('active', !annual);
       btnAnnual.classList.toggle('active', annual);
 
       planAmounts.forEach(el => {
-        const val = annual ? el.dataset.annual : el.dataset.monthly;
-        el.textContent = `$${val}`;
+        if (annual){
+          // Show annual amount, not a monthly amount
+          const annualTotal = el.dataset.annual;
+          el.textContent = formatUSD(annualTotal);
+        } else {
+          el.textContent = formatUSD(el.dataset.monthly);
+        }
       });
 
       fineTexts.forEach(el => {
@@ -729,7 +750,7 @@
       });
 
       perTexts.forEach(el => {
-        el.textContent = annual ? '/ month (annual billing)' : '/ month';
+        el.textContent = annual ? '/ year' : '/ month';
       });
     }
 
